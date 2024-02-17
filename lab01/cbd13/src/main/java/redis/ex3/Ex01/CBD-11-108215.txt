@@ -1,0 +1,100 @@
+SET key "redis string"
+GET key
+DEL key
+GET key
+GET keyD
+INCR key 
+GET keyD
+GET key
+
+GET key
+INCR key 10
+INCR key "10"
+DEL 
+GET key
+keys
+KEYS
+GET key
+KEYS p
+KEYS *
+SET key incrementador
+INCRBY incrementador 10
+KEYS *
+GET incrementador
+INCRBY incrementador "ola"
+INCRBY incrementador ola
+INCRBY incrementador 20
+GET incrementador
+EXPIRE incrementador 10
+KEYS *
+LPUSH list ola
+LPUSH list tudo
+LPUSH list bem
+LRANGE list
+LRANGE list 0 2
+RPUSH list tudo
+RPUSH list bem
+LRANGE list 0 5
+lpop list
+rpop list
+lrem list 
+LRANGE list 0 5
+RPUSH list tudo
+LRANGE list 0 5
+KEYS *
+keys *l
+keys li*
+keys *st
+slowlog get 25
+monitor
+GET bikes:repairs 
+SET bikes:repairs 
+SET bikes:repairs bike:10
+GET bikes:repairs 
+keys *
+LTRIM list 0 2
+GET list
+keys *
+GET list
+lrange list 0 stop
+lrange list 0 10
+hexists list 10
+hexists list ola
+HMSET 
+HMSET hash
+SET set redis
+SET set mongodb
+SET set rabitmq
+GET set
+SADD set rabotmq
+SADD set rabitmq
+DEL set
+sadd set rabitmq
+smembers
+smembers set
+sadd set mongodb
+sismember set *db
+sismember set *
+sismember set mongodb
+srandmember set
+zadd slist cerveja
+zadd slist 0 cerveja
+zadd slist 0 binho
+zadd hackers 1940 "Alan Kay"
+zadd hackers 1957 "Sophie Wilson"
+zadd hacker 1953 "Richard Stallman"
+zadd hacker 1949 "Anita Borg"
+zrange hackers 0 -1
+zrange hackers 0 10
+zadd hackers 1949 "Anita Borg"
+zadd hackers 1953 "Richard Stallman"
+zrange hackers 0 -1
+zrange hackers 0 -1 [withscores]
+zrange hackers 0 -1 [WITHSCORES]
+zrevrange hackers 0 -1 
+zrevrange hackers 0 -1 WITHSCORES
+zrangebyscore hackers -inf 1950
+zremrangebyscore hackers 1940 1950
+zrevrange hackers 0 -1 
+zrank hackers "Sophie Wilson"
+zrank hackers "Richard Stallman"

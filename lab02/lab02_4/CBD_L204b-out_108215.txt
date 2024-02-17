@@ -1,0 +1,139 @@
+Bem vindo ao sistema de atendimento!
+Indique o limite de compras por utilizador: 
+20
+Indique o tempo limite de compras (segundos) : 
+60
+1 - Login ou registar utilizador
+2 - Comprar produto
+3 - Verificar produtos comprados
+4 - Limite de compras
+5 - Sair
+Digite a opção desejada: 1
+Digite o nome do utilizador: Luis
+Utilizador já existe, logado como: Luis
+1 - Login ou registar utilizador
+2 - Comprar produto
+3 - Verificar produtos comprados
+4 - Limite de compras
+5 - Sair
+Digite a opção desejada: 2
+Digite o nome do produto: Bola   
+Digite a quantidade de produtos: 
+10
+Produto adicionado com sucesso
+1 - Login ou registar utilizador
+2 - Comprar produto
+3 - Verificar produtos comprados
+4 - Limite de compras
+5 - Sair
+Digite a opção desejada: 2
+Digite o nome do produto: Bola
+Digite a quantidade de produtos: 
+10
+Produto adicionado com sucesso
+1 - Login ou registar utilizador
+2 - Comprar produto
+3 - Verificar produtos comprados
+4 - Limite de compras
+5 - Sair
+Digite a opção desejada: 3
+Produtos no carrinho: 
+Nome: Bola Quantidade: 10 Tempo restante: 54 segundos
+Nome: Bola Quantidade: 10 Tempo restante: 58 segundos
+1 - Login ou registar utilizador
+2 - Comprar produto
+3 - Verificar produtos comprados
+4 - Limite de compras
+5 - Sair
+Digite a opção desejada: 2
+Digite o nome do produto: Bola
+Digite a quantidade de produtos: 
+10
+Quantidade de produtos excede o limite de compras
+1 - Login ou registar utilizador
+2 - Comprar produto
+3 - Verificar produtos comprados
+4 - Limite de compras
+5 - Sair
+Digite a opção desejada: 3
+Produtos no carrinho: 
+Nome: Bola Quantidade: 10 Tempo restante: 46 segundos
+Nome: Bola Quantidade: 10 Tempo restante: 50 segundos
+1 - Login ou registar utilizador
+2 - Comprar produto
+3 - Verificar produtos comprados
+4 - Limite de compras
+5 - Sair
+Digite a opção desejada: 2
+Digite o nome do produto: Telemovel
+Digite a quantidade de produtos: 
+10
+Quantidade de produtos excede o limite de compras
+1 - Login ou registar utilizador
+2 - Comprar produto
+3 - Verificar produtos comprados
+4 - Limite de compras
+5 - Sair
+Digite a opção desejada: 3
+Produtos no carrinho: 
+Nome: Bola Quantidade: 10 Tempo restante: 37 segundos
+Nome: Bola Quantidade: 10 Tempo restante: 41 segundos
+1 - Login ou registar utilizador
+2 - Comprar produto
+3 - Verificar produtos comprados
+4 - Limite de compras
+5 - Sair
+Digite a opção desejada: 2
+Digite o nome do produto: Chinelo
+Digite a quantidade de produtos: 
+1
+Quantidade de produtos excede o limite de compras
+1 - Login ou registar utilizador
+2 - Comprar produto
+3 - Verificar produtos comprados
+4 - Limite de compras
+5 - Sair
+Digite a opção desejada: 3
+Produtos no carrinho: 
+Nome: Bola Quantidade: 10 Tempo restante: 25 segundos
+Nome: Bola Quantidade: 10 Tempo restante: 29 segundos
+1 - Login ou registar utilizador
+2 - Comprar produto
+3 - Verificar produtos comprados
+4 - Limite de compras
+5 - Sair
+Digite a opção desejada: 3
+Produtos no carrinho: 
+Nome: Bola Quantidade: 10 Tempo restante: 14 segundos
+Nome: Bola Quantidade: 10 Tempo restante: 18 segundos
+1 - Login ou registar utilizador
+2 - Comprar produto
+3 - Verificar produtos comprados
+4 - Limite de compras
+5 - Sair
+Digite a opção desejada: 3
+Produtos no carrinho: 
+Nome: Bola Quantidade: 10 Tempo restante: 4 segundos
+1 - Login ou registar utilizador
+2 - Comprar produto
+3 - Verificar produtos comprados
+4 - Limite de compras
+5 - Sair
+Digite a opção desejada: 3
+Produtos no carrinho: 
+Nome: Bola Quantidade: 10 Tempo restante: 1 segundos
+1 - Login ou registar utilizador
+2 - Comprar produto
+3 - Verificar produtos comprados
+4 - Limite de compras
+5 - Sair
+Digite a opção desejada: 3
+Não existem produtos no carrinho
+1 - Login ou registar utilizador
+2 - Comprar produto
+3 - Verificar produtos comprados
+4 - Limite de compras
+5 - Sair
+Digite a opção desejada: 5
+Saindo do sistema...
+hugo@pop-os:~/Desktop/l

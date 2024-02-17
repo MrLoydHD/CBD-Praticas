@@ -1,0 +1,86 @@
+[
+  {
+    "video_id": 5,
+    "comment_timestamp": "2023-11-18 18:32:22.594",
+    "comment_id": 5,
+    "author_username": "Wuant",
+    "comment": "Top Chucha"
+  },
+  {
+    "video_id": 10,
+    "comment_timestamp": "2023-11-18 18:32:22.636",
+    "comment_id": 12,
+    "author_username": "Tiagovski",
+    "comment": "Afinal não curti"
+  },
+  {
+    "video_id": 10,
+    "comment_timestamp": "2023-11-18 18:32:22.631",
+    "comment_id": 11,
+    "author_username": "Tiagovski",
+    "comment": "Muito bom"
+  },
+  {
+    "video_id": 11,
+    "comment_timestamp": "2023-11-18 18:32:22.626",
+    "comment_id": 10,
+    "author_username": "Dayzer",
+    "comment": "Muito bom"
+  },
+  {
+    "video_id": 1,
+    "comment_timestamp": "2023-11-18 18:32:22.575",
+    "comment_id": 2,
+    "author_username": "RicFazeres",
+    "comment": "Muito mau Primos"
+  },
+  {
+    "video_id": 1,
+    "comment_timestamp": "2023-11-18 18:32:22.570",
+    "comment_id": 1,
+    "author_username": "Wuant",
+    "comment": "Muito bom Primos"
+  },
+  {
+    "video_id": 8,
+    "comment_timestamp": "2023-11-18 18:32:22.619",
+    "comment_id": 9,
+    "author_username": "Flygon2003",
+    "comment": "Muito bom"
+  },
+  {
+    "video_id": 8,
+    "comment_timestamp": "2023-11-18 18:32:22.612",
+    "comment_id": 8,
+    "author_username": "Tiagovski",
+    "comment": "Muita bom 2"
+  },
+  {
+    "video_id": 4,
+    "comment_timestamp": "2023-11-18 18:32:22.589",
+    "comment_id": 4,
+    "author_username": "Os Primos",
+    "comment": " bom"
+  },
+  {
+    "video_id": 7,
+    "comment_timestamp": "2023-11-18 18:32:22.606",
+    "comment_id": 7,
+    "author_username": "Tiagovski",
+    "comment": "Muita bom"
+  },
+  {
+    "video_id": 6,
+    "comment_timestamp": "2023-11-18 18:32:22.601",
+    "comment_id": 6,
+    "author_username": "D4rkFrame",
+    "comment": "Tive de comentar o meu proprio video, sad"
+  },
+  {
+    "video_id": 3,
+    "comment_timestamp": "2023-11-18 18:32:22.581",
+    "comment_id": 3,
+    "author_username": "Os Primos",
+    "comment": "UABO"
+  }
+]

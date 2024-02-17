@@ -1,0 +1,770 @@
+CBD - Lab201 - Hugo Correia
+
+Script:
+
+use dbTest
+show dbs
+show collections
+db.students.deleteMany({}) //delete all the students withou deleting the collection itself (only used for testing)
+db.students.insertOne({
+    _id: 1,
+    name: "Hugo",
+    age: 24,
+    courses: ["Informatica", "Música"],
+    scores: [85, 90, 75, 20, 45],
+    desportos: [
+        { _id: 1, name: "futebol", anoComeço: "2012" },
+        { _id: 2, name: "karate", anoComeço: "2020" }
+    ]
+})
+
+db.students.findOne({ _id: 1 }).desportos
+
+db.students.insertMany([
+    { _id: 2, name: "Joao" },
+    { _id: 3, name: "Rui" },
+    { _id: 4, name: "Faria" }
+])
+
+//Encontrar estudantes que tenham id superior a 1 e contenham "o" no nome OU estudantes que contenham "u" no nome
+db.students.find({
+  $or: [
+    {
+      $and: [
+        { _id: { $gt: 1 } },
+        { name: { $regex: /o/i } }
+      ]
+    },
+    { name: { $regex: /u/i } }
+  ]
+})
+
+//ID será dado por default
+
+db.students.insertMany([
+  {name: "João", age: 20, courses: ["Matemática", "Física"] },
+  {name: "Maria", age: 22, courses: ["História", "Literatura"] },
+  {name: "Carlos", age: 19, courses: ["Química", "Biologia"] },
+  {name: "Ana", age: 21, courses: ["Artes", "Música"] },
+  {name: "Pedro", age: 18, courses: ["Educação Física", "Informática"] }
+]);
+
+// Encontrar estudantes com idade igual a 20
+db.students.find({ age: { $eq: 20 } })
+
+// Encontrar estudantes com idade diferente de 20
+db.students.find({ age: { $ne: 20 } })
+
+// Encontrar estudantes com idade menor que 21
+db.students.find({ age: { $lt: 21 } })
+
+// Encontrar estudantes com idade menor ou igual a 21
+db.students.find({ age: { $lte: 21 } })
+
+// Encontrar estudantes com idade maior ou igual a 21
+db.students.find({ age: { $gte: 21 } })
+
+// Encontrar estudantes com idade maior que 21
+db.students.find({ age: { $gt: 21 } })
+
+// Encontrar estudantes que fazem parte dos cursos de "Matemática" ou "Física"
+db.students.find({ courses: { $in: ["Matemática", "Física"] } })
+
+// Encontrar estudantes que não fazem parte dos cursos de "Química" ou "Biologia"
+db.students.find({ courses: { $nin: ["Química", "Biologia"] } })
+
+// Encontrar estudantes com idade igual a 20 e que fazem parte dos cursos de "Matemática"
+db.students.find({ $and: [{ age: { $eq: 20 } }, { courses: "Matemática" }] })
+
+// Encontrar estudantes com idade igual a 20 ou que fazem parte dos cursos de "História"
+db.students.find({ $or: [{ age: { $eq: 20 } }, { courses: "História" }] })
+
+// Encontrar estudantes com idade diferente de 20 e que não fazem parte dos cursos de "História"
+db.students.find({ $nor: [{ age: { $eq: 20 } }, { courses: "História" }] })
+
+// Encontrar estudantes com idade não igual a 20
+db.students.find({ age: { $not: { $eq: 20 } } })
+
+// Encontrar estudantes que fazem parte de ambos os cursos "Matemática" e "Física"
+db.students.find({ courses: { $all: ["Matemática", "Física"] } })
+
+// Encontrar estudantes que têm um curso com "História" e idade maior que 20
+db.students.find({
+  courses: {
+    $elemMatch: { $eq: "História" }
+  },
+  age: { $gt: 20 }
+})
+
+// Encontrar estudantes que têm exatamente 2 cursos
+db.students.find({ courses: { $size: 2 } })
+
+// Classificar os estudantes por idade decrescente
+db.students.find().sort({ age: -1 })
+
+// Limitar a consulta a 2 resultados
+db.students.find().limit(2)
+
+// Pular os primeiros 2 resultados e obter os seguintes
+db.students.find().skip(2)
+
+// Classificar os estudantes por idade decrescente, pular os primeiros 2 resultados e limitar a 3 resultados
+db.students.find().sort({ age: -1 }).skip(2).limit(3)
+
+// Atualizar o campo "age" para 25
+db.students.update({ _id: 1 }, { $set: { age: 25 } })
+
+// Remover o campo "age"
+db.students.update({ _id: 1 }, { $unset: { age: 1 } })
+
+// Renomear o campo "age" para "yearsOld"
+db.students.update({ _id: 1 }, { $rename: { age: "yearsOld" } })
+
+// Incrementar o campo "score" em 5
+db.students.update({ _id: 1 }, { $inc: { score: 5 } })
+
+// Multiplicar o campo "idade" por 2
+db.students.update({ _id: 1 }, { $mul: { age: 2 } })
+
+// Definir o valor mínimo de "score" para 50
+db.students.update({ _id: 1 }, { $min: { score: 50 } })
+
+// Adicionar um elemento ao array "courses"
+db.students.update({ _id: 1 }, { $push: { courses: "English" } })
+
+// Remover um elemento especifico do array "scores"
+db.students.update({ _id: 1 }, { $pull: { scores: 90 } })
+
+// Adicionar um elemento ao array "courses" se não existir
+db.students.update({ _id: 1 }, { $addToSet: { courses: "Geography" } })
+
+// Remover o primeiro elemento do array "scores"
+db.students.update({ _id: 1 }, { $pop: { scores: -1 } })
+
+// Remover o último elemento do array "scores"
+db.students.update({ _id: 1 }, { $pop: { scores: 1 } })
+
+// Adicionar um elemento ao array "scores" e manter a ordem
+db.students.update({ _id: 1 }, { $push: { scores: { $each: [80], $sort: 1 } } })
+
+// Excluir um elemento
+db.students.deleteOne({ _id: 1 })
+
+// Excluir múltiplos elementos
+db.students.deleteMany({ age: 20 })
+
+// Excluir um elemento e retorná lo
+const deletedStudent = db.students.findOneAndDelete({ _id: 2 })
+
+//Cria um indice para facilitar o desempenho das consultas. Neste caso por ordem crescente
+db.students.createIndex({ name: 1 })
+
+//Lista dos indexes disponiveis
+db.students.getIndexes()
+
+show collections
+db.students.dropIndexes()
+db.students.drop()
+db.dropDatabase()
+
+
+
+
+
+
+Output do Script:
+
+switched to db dbTest
+admin   112.00 KiB
+config  108.00 KiB
+local    72.00 KiB
+
+{ acknowledged: true, deletedCount: 0 }
+{ acknowledged: true, insertedId: 1 }
+[
+  { _id: 1, name: 'futebol', 'anoComeço': '2012' },
+  { _id: 2, name: 'karate', 'anoComeço': '2020' }
+]
+{ acknowledged: true, insertedIds: { '0': 2, '1': 3, '2': 4 } }
+[
+  {
+    _id: 1,
+    name: 'Hugo',
+    age: 24,
+    courses: [ 'Informatica', 'Música' ],
+    scores: [ 85, 90, 75, 20, 45 ],
+    desportos: [
+      { _id: 1, name: 'futebol', 'anoComeço': '2012' },
+      { _id: 2, name: 'karate', 'anoComeço': '2020' }
+    ]
+  },
+  { _id: 2, name: 'Joao' },
+  { _id: 3, name: 'Rui' }
+]
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("6519b139d874ee2f28758795"),
+    '1': ObjectId("6519b139d874ee2f28758796"),
+    '2': ObjectId("6519b139d874ee2f28758797"),
+    '3': ObjectId("6519b139d874ee2f28758798"),
+    '4': ObjectId("6519b139d874ee2f28758799")
+  }
+}
+[
+  {
+    _id: ObjectId("6519b139d874ee2f28758795"),
+    name: 'João',
+    age: 20,
+    courses: [ 'Matemática', 'Física' ]
+  }
+]
+[
+  {
+    _id: 1,
+    name: 'Hugo',
+    age: 24,
+    courses: [ 'Informatica', 'Música' ],
+    scores: [ 85, 90, 75, 20, 45 ],
+    desportos: [
+      { _id: 1, name: 'futebol', 'anoComeço': '2012' },
+      { _id: 2, name: 'karate', 'anoComeço': '2020' }
+    ]
+  },
+  { _id: 2, name: 'Joao' },
+  { _id: 3, name: 'Rui' },
+  { _id: 4, name: 'Faria' },
+  {
+    _id: ObjectId("6519b139d874ee2f28758796"),
+    name: 'Maria',
+    age: 22,
+    courses: [ 'História', 'Literatura' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758797"),
+    name: 'Carlos',
+    age: 19,
+    courses: [ 'Química', 'Biologia' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758798"),
+    name: 'Ana',
+    age: 21,
+    courses: [ 'Artes', 'Música' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758799"),
+    name: 'Pedro',
+    age: 18,
+    courses: [ 'Educação Física', 'Informática' ]
+  }
+]
+[
+  {
+    _id: ObjectId("6519b139d874ee2f28758795"),
+    name: 'João',
+    age: 20,
+    courses: [ 'Matemática', 'Física' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758797"),
+    name: 'Carlos',
+    age: 19,
+    courses: [ 'Química', 'Biologia' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758799"),
+    name: 'Pedro',
+    age: 18,
+    courses: [ 'Educação Física', 'Informática' ]
+  }
+]
+[
+  {
+    _id: ObjectId("6519b139d874ee2f28758795"),
+    name: 'João',
+    age: 20,
+    courses: [ 'Matemática', 'Física' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758797"),
+    name: 'Carlos',
+    age: 19,
+    courses: [ 'Química', 'Biologia' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758798"),
+    name: 'Ana',
+    age: 21,
+    courses: [ 'Artes', 'Música' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758799"),
+    name: 'Pedro',
+    age: 18,
+    courses: [ 'Educação Física', 'Informática' ]
+  }
+]
+[
+  {
+    _id: 1,
+    name: 'Hugo',
+    age: 24,
+    courses: [ 'Informatica', 'Música' ],
+    scores: [ 85, 90, 75, 20, 45 ],
+    desportos: [
+      { _id: 1, name: 'futebol', 'anoComeço': '2012' },
+      { _id: 2, name: 'karate', 'anoComeço': '2020' }
+    ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758796"),
+    name: 'Maria',
+    age: 22,
+    courses: [ 'História', 'Literatura' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758798"),
+    name: 'Ana',
+    age: 21,
+    courses: [ 'Artes', 'Música' ]
+  }
+]
+[
+  {
+    _id: 1,
+    name: 'Hugo',
+    age: 24,
+    courses: [ 'Informatica', 'Música' ],
+    scores: [ 85, 90, 75, 20, 45 ],
+    desportos: [
+      { _id: 1, name: 'futebol', 'anoComeço': '2012' },
+      { _id: 2, name: 'karate', 'anoComeço': '2020' }
+    ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758796"),
+    name: 'Maria',
+    age: 22,
+    courses: [ 'História', 'Literatura' ]
+  }
+]
+[
+  {
+    _id: ObjectId("6519b139d874ee2f28758795"),
+    name: 'João',
+    age: 20,
+    courses: [ 'Matemática', 'Física' ]
+  }
+]
+[
+  {
+    _id: 1,
+    name: 'Hugo',
+    age: 24,
+    courses: [ 'Informatica', 'Música' ],
+    scores: [ 85, 90, 75, 20, 45 ],
+    desportos: [
+      { _id: 1, name: 'futebol', 'anoComeço': '2012' },
+      { _id: 2, name: 'karate', 'anoComeço': '2020' }
+    ]
+  },
+  { _id: 2, name: 'Joao' },
+  { _id: 3, name: 'Rui' },
+  { _id: 4, name: 'Faria' },
+  {
+    _id: ObjectId("6519b139d874ee2f28758795"),
+    name: 'João',
+    age: 20,
+    courses: [ 'Matemática', 'Física' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758796"),
+    name: 'Maria',
+    age: 22,
+    courses: [ 'História', 'Literatura' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758798"),
+    name: 'Ana',
+    age: 21,
+    courses: [ 'Artes', 'Música' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758799"),
+    name: 'Pedro',
+    age: 18,
+    courses: [ 'Educação Física', 'Informática' ]
+  }
+]
+[
+  {
+    _id: ObjectId("6519b139d874ee2f28758795"),
+    name: 'João',
+    age: 20,
+    courses: [ 'Matemática', 'Física' ]
+  }
+]
+[
+  {
+    _id: ObjectId("6519b139d874ee2f28758795"),
+    name: 'João',
+    age: 20,
+    courses: [ 'Matemática', 'Física' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758796"),
+    name: 'Maria',
+    age: 22,
+    courses: [ 'História', 'Literatura' ]
+  }
+]
+[
+  {
+    _id: 1,
+    name: 'Hugo',
+    age: 24,
+    courses: [ 'Informatica', 'Música' ],
+    scores: [ 85, 90, 75, 20, 45 ],
+    desportos: [
+      { _id: 1, name: 'futebol', 'anoComeço': '2012' },
+      { _id: 2, name: 'karate', 'anoComeço': '2020' }
+    ]
+  },
+  { _id: 2, name: 'Joao' },
+  { _id: 3, name: 'Rui' },
+  { _id: 4, name: 'Faria' },
+  {
+    _id: ObjectId("6519b139d874ee2f28758797"),
+    name: 'Carlos',
+    age: 19,
+    courses: [ 'Química', 'Biologia' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758798"),
+    name: 'Ana',
+    age: 21,
+    courses: [ 'Artes', 'Música' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758799"),
+    name: 'Pedro',
+    age: 18,
+    courses: [ 'Educação Física', 'Informática' ]
+  }
+]
+[
+  {
+    _id: 1,
+    name: 'Hugo',
+    age: 24,
+    courses: [ 'Informatica', 'Música' ],
+    scores: [ 85, 90, 75, 20, 45 ],
+    desportos: [
+      { _id: 1, name: 'futebol', 'anoComeço': '2012' },
+      { _id: 2, name: 'karate', 'anoComeço': '2020' }
+    ]
+  },
+  { _id: 2, name: 'Joao' },
+  { _id: 3, name: 'Rui' },
+  { _id: 4, name: 'Faria' },
+  {
+    _id: ObjectId("6519b139d874ee2f28758796"),
+    name: 'Maria',
+    age: 22,
+    courses: [ 'História', 'Literatura' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758797"),
+    name: 'Carlos',
+    age: 19,
+    courses: [ 'Química', 'Biologia' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758798"),
+    name: 'Ana',
+    age: 21,
+    courses: [ 'Artes', 'Música' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758799"),
+    name: 'Pedro',
+    age: 18,
+    courses: [ 'Educação Física', 'Informática' ]
+  }
+]
+[
+  {
+    _id: ObjectId("6519b139d874ee2f28758795"),
+    name: 'João',
+    age: 20,
+    courses: [ 'Matemática', 'Física' ]
+  }
+]
+[
+  {
+    _id: ObjectId("6519b139d874ee2f28758796"),
+    name: 'Maria',
+    age: 22,
+    courses: [ 'História', 'Literatura' ]
+  }
+]
+[
+  {
+    _id: 1,
+    name: 'Hugo',
+    age: 24,
+    courses: [ 'Informatica', 'Música' ],
+    scores: [ 85, 90, 75, 20, 45 ],
+    desportos: [
+      { _id: 1, name: 'futebol', 'anoComeço': '2012' },
+      { _id: 2, name: 'karate', 'anoComeço': '2020' }
+    ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758795"),
+    name: 'João',
+    age: 20,
+    courses: [ 'Matemática', 'Física' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758796"),
+    name: 'Maria',
+    age: 22,
+    courses: [ 'História', 'Literatura' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758797"),
+    name: 'Carlos',
+    age: 19,
+    courses: [ 'Química', 'Biologia' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758798"),
+    name: 'Ana',
+    age: 21,
+    courses: [ 'Artes', 'Música' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758799"),
+    name: 'Pedro',
+    age: 18,
+    courses: [ 'Educação Física', 'Informática' ]
+  }
+]
+[
+  {
+    _id: 1,
+    name: 'Hugo',
+    age: 24,
+    courses: [ 'Informatica', 'Música' ],
+    scores: [ 85, 90, 75, 20, 45 ],
+    desportos: [
+      { _id: 1, name: 'futebol', 'anoComeço': '2012' },
+      { _id: 2, name: 'karate', 'anoComeço': '2020' }
+    ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758796"),
+    name: 'Maria',
+    age: 22,
+    courses: [ 'História', 'Literatura' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758798"),
+    name: 'Ana',
+    age: 21,
+    courses: [ 'Artes', 'Música' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758795"),
+    name: 'João',
+    age: 20,
+    courses: [ 'Matemática', 'Física' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758797"),
+    name: 'Carlos',
+    age: 19,
+    courses: [ 'Química', 'Biologia' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758799"),
+    name: 'Pedro',
+    age: 18,
+    courses: [ 'Educação Física', 'Informática' ]
+  },
+  { _id: 2, name: 'Joao' },
+  { _id: 3, name: 'Rui' },
+  { _id: 4, name: 'Faria' }
+]
+[
+  {
+    _id: 1,
+    name: 'Hugo',
+    age: 24,
+    courses: [ 'Informatica', 'Música' ],
+    scores: [ 85, 90, 75, 20, 45 ],
+    desportos: [
+      { _id: 1, name: 'futebol', 'anoComeço': '2012' },
+      { _id: 2, name: 'karate', 'anoComeço': '2020' }
+    ]
+  },
+  { _id: 2, name: 'Joao' }
+]
+[
+  { _id: 3, name: 'Rui' },
+  { _id: 4, name: 'Faria' },
+  {
+    _id: ObjectId("6519b139d874ee2f28758795"),
+    name: 'João',
+    age: 20,
+    courses: [ 'Matemática', 'Física' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758796"),
+    name: 'Maria',
+    age: 22,
+    courses: [ 'História', 'Literatura' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758797"),
+    name: 'Carlos',
+    age: 19,
+    courses: [ 'Química', 'Biologia' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758798"),
+    name: 'Ana',
+    age: 21,
+    courses: [ 'Artes', 'Música' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758799"),
+    name: 'Pedro',
+    age: 18,
+    courses: [ 'Educação Física', 'Informática' ]
+  }
+]
+[
+  {
+    _id: ObjectId("6519b139d874ee2f28758798"),
+    name: 'Ana',
+    age: 21,
+    courses: [ 'Artes', 'Música' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758795"),
+    name: 'João',
+    age: 20,
+    courses: [ 'Matemática', 'Física' ]
+  },
+  {
+    _id: ObjectId("6519b139d874ee2f28758797"),
+    name: 'Carlos',
+    age: 19,
+    courses: [ 'Química', 'Biologia' ]
+  }
+]
+DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+{ acknowledged: true, deletedCount: 1 }
+{ acknowledged: true, deletedCount: 1 }
+ 
+name_1
+[
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  { v: 2, key: { name: 1 }, name: 'name_1' }
+]
+students
+{
+  nIndexesWas: 2,
+  msg: 'non-_id indexes dropped for collection',
+  ok: 1
+}
+true
+{ ok: 1, dropped: 'dbTest' }
+

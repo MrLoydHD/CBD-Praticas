@@ -1,0 +1,686 @@
+Título da Consulta: Buscar número de Pokemons por geração
+Query: MATCH (p:Pokemon) RETURN p.generation AS Geracao, COUNT(p) AS NumeroDePokemons ORDER BY Geracao
+Resultado: Record<{Geracao: 1, NumeroDePokemons: 151}>
+Record<{Geracao: 2, NumeroDePokemons: 100}>
+Record<{Geracao: 3, NumeroDePokemons: 135}>
+Record<{Geracao: 4, NumeroDePokemons: 107}>
+Record<{Geracao: 5, NumeroDePokemons: 156}>
+Record<{Geracao: 6, NumeroDePokemons: 72}>
+Record<{Geracao: 7, NumeroDePokemons: 80}>
+
+Título da Consulta: Pokemons com número de pokedex entre 100 e 150 e mais de 10 kg
+Query: MATCH (p:Pokemon) WHERE p.pokedexNumber >= 100 AND p.pokedexNumber <= 150 AND p.weightKg > 10 RETURN p.name, p.pokedexNumber, p.weightKg
+Resultado: Record<{p.name: "Voltorb", p.pokedexNumber: 100, p.weightKg: 10.4}>
+Record<{p.name: "Electrode", p.pokedexNumber: 101, p.weightKg: 66.6}>
+Record<{p.name: "Hitmonlee", p.pokedexNumber: 106, p.weightKg: 49.8}>
+Record<{p.name: "Hitmonchan", p.pokedexNumber: 107, p.weightKg: 50.2}>
+Record<{p.name: "Lickitung", p.pokedexNumber: 108, p.weightKg: 65.5}>
+Record<{p.name: "Rhyhorn", p.pokedexNumber: 111, p.weightKg: 115.0}>
+Record<{p.name: "Rhydon", p.pokedexNumber: 112, p.weightKg: 120.0}>
+Record<{p.name: "Chansey", p.pokedexNumber: 113, p.weightKg: 34.6}>
+Record<{p.name: "Tangela", p.pokedexNumber: 114, p.weightKg: 35.0}>
+Record<{p.name: "Kangaskhan", p.pokedexNumber: 115, p.weightKg: 80.0}>
+Record<{p.name: "Seadra", p.pokedexNumber: 117, p.weightKg: 25.0}>
+Record<{p.name: "Goldeen", p.pokedexNumber: 118, p.weightKg: 15.0}>
+Record<{p.name: "Seaking", p.pokedexNumber: 119, p.weightKg: 39.0}>
+Record<{p.name: "Staryu", p.pokedexNumber: 120, p.weightKg: 34.5}>
+Record<{p.name: "Starmie", p.pokedexNumber: 121, p.weightKg: 80.0}>
+Record<{p.name: "Mr. Mime", p.pokedexNumber: 122, p.weightKg: 54.5}>
+Record<{p.name: "Scyther", p.pokedexNumber: 123, p.weightKg: 56.0}>
+Record<{p.name: "Jynx", p.pokedexNumber: 124, p.weightKg: 40.6}>
+Record<{p.name: "Electabuzz", p.pokedexNumber: 125, p.weightKg: 30.0}>
+Record<{p.name: "Magmar", p.pokedexNumber: 126, p.weightKg: 44.5}>
+Record<{p.name: "Pinsir", p.pokedexNumber: 127, p.weightKg: 55.0}>
+Record<{p.name: "Tauros", p.pokedexNumber: 128, p.weightKg: 88.4}>
+Record<{p.name: "Gyarados", p.pokedexNumber: 130, p.weightKg: 235.0}>
+Record<{p.name: "Lapras", p.pokedexNumber: 131, p.weightKg: 220.0}>
+Record<{p.name: "Vaporeon", p.pokedexNumber: 134, p.weightKg: 29.0}>
+Record<{p.name: "Jolteon", p.pokedexNumber: 135, p.weightKg: 24.5}>
+Record<{p.name: "Flareon", p.pokedexNumber: 136, p.weightKg: 25.0}>
+Record<{p.name: "Porygon", p.pokedexNumber: 137, p.weightKg: 36.5}>
+Record<{p.name: "Omastar", p.pokedexNumber: 139, p.weightKg: 35.0}>
+Record<{p.name: "Kabuto", p.pokedexNumber: 140, p.weightKg: 11.5}>
+Record<{p.name: "Kabutops", p.pokedexNumber: 141, p.weightKg: 40.5}>
+Record<{p.name: "Aerodactyl", p.pokedexNumber: 142, p.weightKg: 59.0}>
+Record<{p.name: "Snorlax", p.pokedexNumber: 143, p.weightKg: 460.0}>
+Record<{p.name: "Articuno", p.pokedexNumber: 144, p.weightKg: 55.4}>
+Record<{p.name: "Zapdos", p.pokedexNumber: 145, p.weightKg: 52.6}>
+Record<{p.name: "Moltres", p.pokedexNumber: 146, p.weightKg: 60.0}>
+Record<{p.name: "Dragonair", p.pokedexNumber: 148, p.weightKg: 16.5}>
+Record<{p.name: "Dragonite", p.pokedexNumber: 149, p.weightKg: 210.0}>
+Record<{p.name: "Mewtwo", p.pokedexNumber: 150, p.weightKg: 122.0}>
+
+Título da Consulta: Buscar Todos os Pokemons da primeira geração com habilidade 'Sturdy' e tipo rock ou ground
+Query: MATCH (p:Pokemon)-[:TEM_HABILIDADE]->(:Ability {name: 'Sturdy'}), (p)-[:É_DE_TIPO]->(t:Type) WHERE p.generation = 1 AND t.name IN ['rock', 'ground'] RETURN p.name, t.name
+Resultado: Record<{p.name: "Geodude", t.name: "rock"}>
+Record<{p.name: "Geodude", t.name: "ground"}>
+Record<{p.name: "Onix", t.name: "ground"}>
+Record<{p.name: "Onix", t.name: "rock"}>
+Record<{p.name: "Graveler", t.name: "ground"}>
+Record<{p.name: "Graveler", t.name: "rock"}>
+Record<{p.name: "Golem", t.name: "rock"}>
+Record<{p.name: "Golem", t.name: "ground"}>
+
+Título da Consulta: Buscar Pokémon por Categoria e Geração
+Query: MATCH (p:Pokemon)-[:PERTENCE_A_GERAÇÃO]->(g:Generation), (p)-[:É_CATEGORIA]->(c:Category) RETURN g.number AS Geracao, c.name AS Categoria, COUNT(p) AS Quantidade ORDER BY g.number, c.name
+Resultado: Record<{Geracao: 1, Categoria: "Lendário", Quantidade: 3}>
+Record<{Geracao: 1, Categoria: "Normal", Quantidade: 78}>
+Record<{Geracao: 2, Categoria: "Lendário", Quantidade: 3}>
+Record<{Geracao: 2, Categoria: "Normal", Quantidade: 46}>
+Record<{Geracao: 3, Categoria: "Lendário", Quantidade: 4}>
+Record<{Geracao: 3, Categoria: "Normal", Quantidade: 62}>
+Record<{Geracao: 4, Categoria: "Lendário", Quantidade: 5}>
+Record<{Geracao: 4, Categoria: "Normal", Quantidade: 49}>
+Record<{Geracao: 5, Categoria: "Lendário", Quantidade: 12}>
+Record<{Geracao: 5, Categoria: "Normal", Quantidade: 63}>
+Record<{Geracao: 6, Categoria: "Lendário", Quantidade: 5}>
+Record<{Geracao: 6, Categoria: "Normal", Quantidade: 36}>
+Record<{Geracao: 7, Categoria: "Lendário", Quantidade: 13}>
+Record<{Geracao: 7, Categoria: "Normal", Quantidade: 38}>
+
+Título da Consulta: Relações Entre Tipos de Pokémon
+Query: MATCH (p:Pokemon)-[:É_DE_TIPO]->(t1:Type), (p)-[:É_DE_TIPO]->(t2:Type) WHERE t1.name < t2.name RETURN t1.name AS Tipo1, t2.name AS Tipo2, COUNT(p) AS NumeroDePokemons ORDER BY NumeroDePokemons DESC
+Resultado: Record<{Tipo1: "flying", Tipo2: "normal", NumeroDePokemons: 26}>
+Record<{Tipo1: "grass", Tipo2: "poison", NumeroDePokemons: 14}>
+Record<{Tipo1: "bug", Tipo2: "flying", NumeroDePokemons: 13}>
+Record<{Tipo1: "bug", Tipo2: "poison", NumeroDePokemons: 12}>
+Record<{Tipo1: "rock", Tipo2: "water", NumeroDePokemons: 10}>
+Record<{Tipo1: "ground", Tipo2: "water", NumeroDePokemons: 9}>
+Record<{Tipo1: "ground", Tipo2: "rock", NumeroDePokemons: 9}>
+Record<{Tipo1: "flying", Tipo2: "water", NumeroDePokemons: 7}>
+Record<{Tipo1: "psychic", Tipo2: "steel", NumeroDePokemons: 7}>
+Record<{Tipo1: "ghost", Tipo2: "grass", NumeroDePokemons: 6}>
+Record<{Tipo1: "bug", Tipo2: "grass", NumeroDePokemons: 6}>
+Record<{Tipo1: "flying", Tipo2: "grass", NumeroDePokemons: 6}>
+Record<{Tipo1: "fighting", Tipo2: "fire", NumeroDePokemons: 6}>
+Record<{Tipo1: "ice", Tipo2: "water", NumeroDePokemons: 6}>
+Record<{Tipo1: "poison", Tipo2: "water", NumeroDePokemons: 6}>
+Record<{Tipo1: "dragon", Tipo2: "ground", NumeroDePokemons: 6}>
+Record<{Tipo1: "flying", Tipo2: "psychic", NumeroDePokemons: 6}>
+Record<{Tipo1: "fairy", Tipo2: "psychic", NumeroDePokemons: 6}>
+Record<{Tipo1: "rock", Tipo2: "steel", NumeroDePokemons: 6}>
+Record<{Tipo1: "dragon", Tipo2: "flying", NumeroDePokemons: 6}>
+Record<{Tipo1: "fire", Tipo2: "flying", NumeroDePokemons: 6}>
+Record<{Tipo1: "fairy", Tipo2: "grass", NumeroDePokemons: 5}>
+Record<{Tipo1: "psychic", Tipo2: "water", NumeroDePokemons: 5}>
+Record<{Tipo1: "bug", Tipo2: "water", NumeroDePokemons: 5}>
+Record<{Tipo1: "bug", Tipo2: "rock", NumeroDePokemons: 5}>
+Record<{Tipo1: "ground", Tipo2: "ice", NumeroDePokemons: 5}>
+Record<{Tipo1: "bug", Tipo2: "steel", NumeroDePokemons: 5}>
+Record<{Tipo1: "dark", Tipo2: "flying", NumeroDePokemons: 5}>
+Record<{Tipo1: "dark", Tipo2: "water", NumeroDePokemons: 4}>
+Record<{Tipo1: "fairy", Tipo2: "water", NumeroDePokemons: 4}>
+Record<{Tipo1: "dark", Tipo2: "normal", NumeroDePokemons: 4}>
+Record<{Tipo1: "fairy", Tipo2: "normal", NumeroDePokemons: 4}>
+Record<{Tipo1: "bug", Tipo2: "electric", NumeroDePokemons: 4}>
+Record<{Tipo1: "ghost", Tipo2: "ground", NumeroDePokemons: 4}>
+Record<{Tipo1: "flying", Tipo2: "rock", NumeroDePokemons: 4}>
+Record<{Tipo1: "dark", Tipo2: "dragon", NumeroDePokemons: 4}>
+Record<{Tipo1: "electric", Tipo2: "steel", NumeroDePokemons: 4}>
+Record<{Tipo1: "dark", Tipo2: "grass", NumeroDePokemons: 3}>
+Record<{Tipo1: "fighting", Tipo2: "grass", NumeroDePokemons: 3}>
+Record<{Tipo1: "dark", Tipo2: "fire", NumeroDePokemons: 3}>
+Record<{Tipo1: "grass", Tipo2: "water", NumeroDePokemons: 3}>
+Record<{Tipo1: "ghost", Tipo2: "poison", NumeroDePokemons: 3}>
+Record<{Tipo1: "flying", Tipo2: "poison", NumeroDePokemons: 3}>
+Record<{Tipo1: "dark", Tipo2: "poison", NumeroDePokemons: 3}>
+Record<{Tipo1: "dark", Tipo2: "ground", NumeroDePokemons: 3}>
+Record<{Tipo1: "fire", Tipo2: "ground", NumeroDePokemons: 3}>
+Record<{Tipo1: "flying", Tipo2: "ground", NumeroDePokemons: 3}>
+Record<{Tipo1: "dark", Tipo2: "fighting", NumeroDePokemons: 3}>
+Record<{Tipo1: "bug", Tipo2: "fighting", NumeroDePokemons: 3}>
+Record<{Tipo1: "grass", Tipo2: "psychic", NumeroDePokemons: 3}>
+Record<{Tipo1: "fighting", Tipo2: "psychic", NumeroDePokemons: 3}>
+Record<{Tipo1: "normal", Tipo2: "psychic", NumeroDePokemons: 3}>
+Record<{Tipo1: "fire", Tipo2: "ghost", NumeroDePokemons: 3}>
+Record<{Tipo1: "grass", Tipo2: "steel", NumeroDePokemons: 3}>
+Record<{Tipo1: "ghost", Tipo2: "steel", NumeroDePokemons: 3}>
+Record<{Tipo1: "fairy", Tipo2: "steel", NumeroDePokemons: 3}>
+Record<{Tipo1: "electric", Tipo2: "flying", NumeroDePokemons: 3}>
+Record<{Tipo1: "dragon", Tipo2: "fire", NumeroDePokemons: 2}>
+Record<{Tipo1: "bug", Tipo2: "fire", NumeroDePokemons: 2}>
+Record<{Tipo1: "electric", Tipo2: "water", NumeroDePokemons: 2}>
+Record<{Tipo1: "dragon", Tipo2: "water", NumeroDePokemons: 2}>
+Record<{Tipo1: "fighting", Tipo2: "water", NumeroDePokemons: 2}>
+Record<{Tipo1: "ghost", Tipo2: "water", NumeroDePokemons: 2}>
+Record<{Tipo1: "electric", Tipo2: "normal", NumeroDePokemons: 2}>
+Record<{Tipo1: "fighting", Tipo2: "normal", NumeroDePokemons: 2}>
+Record<{Tipo1: "fire", Tipo2: "normal", NumeroDePokemons: 2}>
+Record<{Tipo1: "grass", Tipo2: "normal", NumeroDePokemons: 2}>
+Record<{Tipo1: "ground", Tipo2: "poison", NumeroDePokemons: 2}>
+Record<{Tipo1: "fighting", Tipo2: "poison", NumeroDePokemons: 2}>
+Record<{Tipo1: "fire", Tipo2: "poison", NumeroDePokemons: 2}>
+Record<{Tipo1: "bug", Tipo2: "fairy", NumeroDePokemons: 2}>
+Record<{Tipo1: "electric", Tipo2: "fairy", NumeroDePokemons: 2}>
+Record<{Tipo1: "dragon", Tipo2: "fighting", NumeroDePokemons: 2}>
+Record<{Tipo1: "ground", Tipo2: "psychic", NumeroDePokemons: 2}>
+Record<{Tipo1: "fire", Tipo2: "psychic", NumeroDePokemons: 2}>
+Record<{Tipo1: "ice", Tipo2: "psychic", NumeroDePokemons: 2}>
+Record<{Tipo1: "dark", Tipo2: "psychic", NumeroDePokemons: 2}>
+Record<{Tipo1: "dragon", Tipo2: "psychic", NumeroDePokemons: 2}>
+Record<{Tipo1: "ghost", Tipo2: "psychic", NumeroDePokemons: 2}>
+Record<{Tipo1: "psychic", Tipo2: "rock", NumeroDePokemons: 2}>
+Record<{Tipo1: "ice", Tipo2: "rock", NumeroDePokemons: 2}>
+Record<{Tipo1: "fairy", Tipo2: "rock", NumeroDePokemons: 2}>
+Record<{Tipo1: "grass", Tipo2: "rock", NumeroDePokemons: 2}>
+Record<{Tipo1: "dragon", Tipo2: "rock", NumeroDePokemons: 2}>
+Record<{Tipo1: "dark", Tipo2: "ghost", NumeroDePokemons: 2}>
+Record<{Tipo1: "flying", Tipo2: "ghost", NumeroDePokemons: 2}>
+Record<{Tipo1: "fire", Tipo2: "ice", NumeroDePokemons: 2}>
+Record<{Tipo1: "grass", Tipo2: "ice", NumeroDePokemons: 2}>
+Record<{Tipo1: "dark", Tipo2: "ice", NumeroDePokemons: 2}>
+Record<{Tipo1: "flying", Tipo2: "ice", NumeroDePokemons: 2}>
+Record<{Tipo1: "fighting", Tipo2: "steel", NumeroDePokemons: 2}>
+Record<{Tipo1: "ground", Tipo2: "steel", NumeroDePokemons: 2}>
+Record<{Tipo1: "flying", Tipo2: "steel", NumeroDePokemons: 2}>
+Record<{Tipo1: "dark", Tipo2: "steel", NumeroDePokemons: 2}>
+Record<{Tipo1: "fairy", Tipo2: "flying", NumeroDePokemons: 2}>
+Record<{Tipo1: "normal", Tipo2: "water", NumeroDePokemons: 1}>
+Record<{Tipo1: "steel", Tipo2: "water", NumeroDePokemons: 1}>
+Record<{Tipo1: "fire", Tipo2: "water", NumeroDePokemons: 1}>
+Record<{Tipo1: "dragon", Tipo2: "normal", NumeroDePokemons: 1}>
+Record<{Tipo1: "ground", Tipo2: "normal", NumeroDePokemons: 1}>
+Record<{Tipo1: "dragon", Tipo2: "poison", NumeroDePokemons: 1}>
+Record<{Tipo1: "dragon", Tipo2: "electric", NumeroDePokemons: 1}>
+Record<{Tipo1: "grass", Tipo2: "ground", NumeroDePokemons: 1}>
+Record<{Tipo1: "electric", Tipo2: "ground", NumeroDePokemons: 1}>
+Record<{Tipo1: "bug", Tipo2: "ground", NumeroDePokemons: 1}>
+Record<{Tipo1: "fighting", Tipo2: "rock", NumeroDePokemons: 1}>
+Record<{Tipo1: "fire", Tipo2: "rock", NumeroDePokemons: 1}>
+Record<{Tipo1: "dark", Tipo2: "rock", NumeroDePokemons: 1}>
+Record<{Tipo1: "poison", Tipo2: "rock", NumeroDePokemons: 1}>
+Record<{Tipo1: "dragon", Tipo2: "ghost", NumeroDePokemons: 1}>
+Record<{Tipo1: "fairy", Tipo2: "ghost", NumeroDePokemons: 1}>
+Record<{Tipo1: "bug", Tipo2: "ghost", NumeroDePokemons: 1}>
+Record<{Tipo1: "electric", Tipo2: "ghost", NumeroDePokemons: 1}>
+Record<{Tipo1: "fighting", Tipo2: "ice", NumeroDePokemons: 1}>
+Record<{Tipo1: "dragon", Tipo2: "ice", NumeroDePokemons: 1}>
+Record<{Tipo1: "ghost", Tipo2: "ice", NumeroDePokemons: 1}>
+Record<{Tipo1: "fire", Tipo2: "steel", NumeroDePokemons: 1}>
+Record<{Tipo1: "dragon", Tipo2: "steel", NumeroDePokemons: 1}>
+Record<{Tipo1: "fighting", Tipo2: "flying", NumeroDePokemons: 1}>
+
+Título da Consulta: Buscar Todos os Pokémon de um Tipo Específico (Fogo)
+Query: MATCH (p:Pokemon)-[:É_DE_TIPO]->(:Type {name: 'fire'}) RETURN p.name
+Resultado: Record<{p.name: "Salazzle"}>
+Record<{p.name: "Houndoom"}>
+Record<{p.name: "Torracat"}>
+Record<{p.name: "Typhlosion"}>
+Record<{p.name: "Torkoal"}>
+Record<{p.name: "Camerupt"}>
+Record<{p.name: "Flareon"}>
+Record<{p.name: "Infernape"}>
+Record<{p.name: "Talonflame"}>
+Record<{p.name: "Pignite"}>
+Record<{p.name: "Incineroar"}>
+Record<{p.name: "Slugma"}>
+Record<{p.name: "Chimchar"}>
+Record<{p.name: "Fletchinder"}>
+Record<{p.name: "Charmander"}>
+Record<{p.name: "Charmeleon"}>
+Record<{p.name: "Charizard"}>
+Record<{p.name: "Monferno"}>
+Record<{p.name: "Lampent"}>
+Record<{p.name: "Volcanion"}>
+Record<{p.name: "Simisear"}>
+Record<{p.name: "Turtonator"}>
+Record<{p.name: "Darumaka"}>
+Record<{p.name: "Pansear"}>
+Record<{p.name: "Ho-Oh"}>
+Record<{p.name: "Rapidash"}>
+Record<{p.name: "Magmar"}>
+Record<{p.name: "Blaziken"}>
+Record<{p.name: "Litwick"}>
+Record<{p.name: "Magmortar"}>
+Record<{p.name: "Growlithe"}>
+Record<{p.name: "Darmanitan"}>
+Record<{p.name: "Reshiram"}>
+Record<{p.name: "Quilava"}>
+Record<{p.name: "Combusken"}>
+Record<{p.name: "Arcanine"}>
+Record<{p.name: "Braixen"}>
+Record<{p.name: "Houndour"}>
+Record<{p.name: "Vulpix"}>
+Record<{p.name: "Emboar"}>
+Record<{p.name: "Ponyta"}>
+Record<{p.name: "Delphox"}>
+Record<{p.name: "Oricorio"}>
+Record<{p.name: "Magcargo"}>
+Record<{p.name: "Magby"}>
+Record<{p.name: "Heatran"}>
+Record<{p.name: "Entei"}>
+Record<{p.name: "Numel"}>
+Record<{p.name: "Litten"}>
+Record<{p.name: "Ninetales"}>
+Record<{p.name: "Cyndaquil"}>
+Record<{p.name: "Salandit"}>
+Record<{p.name: "Tepig"}>
+Record<{p.name: "Chandelure"}>
+Record<{p.name: "Marowak"}>
+Record<{p.name: "Volcarona"}>
+Record<{p.name: "Fennekin"}>
+Record<{p.name: "Torchic"}>
+Record<{p.name: "Pyroar"}>
+Record<{p.name: "Heatmor"}>
+Record<{p.name: "Litleo"}>
+Record<{p.name: "Moltres"}>
+Record<{p.name: "Victini"}>
+Record<{p.name: "Larvesta"}>
+
+Título da Consulta: Buscar Pokémon Lendários por Geração
+Query: MATCH (p:Pokemon) WHERE p.isLegendary = true RETURN p.generation AS Geracao, COLLECT(p.name) AS Lendarios ORDER BY p.generation
+Resultado: Record<{Geracao: 1, Lendarios: ["Articuno", "Zapdos", "Moltres", "Mewtwo", "Mew"]}>
+Record<{Geracao: 2, Lendarios: ["Raikou", "Entei", "Suicune", "Lugia", "Ho-Oh", "Celebi"]}>
+Record<{Geracao: 3, Lendarios: ["Regirock", "Regice", "Registeel", "Latias", "Latios", "Kyogre", "Groudon", "Rayquaza", "Jirachi", "Deoxys"]}>
+Record<{Geracao: 4, Lendarios: ["Uxie", "Mesprit", "Azelf", "Dialga", "Palkia", "Heatran", "Regigigas", "Giratina", "Cresselia", "Manaphy", "Darkrai", "Shaymin", "Arceus"]}>
+Record<{Geracao: 5, Lendarios: ["Victini", "Cobalion", "Terrakion", "Virizion", "Tornadus", "Thundurus", "Reshiram", "Zekrom", "Landorus", "Kyurem", "Keldeo", "Meloetta", "Genesect"]}>
+Record<{Geracao: 6, Lendarios: ["Xerneas", "Yveltal", "Zygarde", "Diancie", "Hoopa", "Volcanion"]}>
+Record<{Geracao: 7, Lendarios: ["Tapu Koko", "Tapu Lele", "Tapu Bulu", "Tapu Fini", "Cosmog", "Cosmoem", "Solgaleo", "Lunala", "Nihilego", "Buzzwole", "Pheromosa", "Xurkitree", "Celesteela", "Kartana", "Guzzlord", "Necrozma", "Magearna"]}>
+
+Título da Consulta: Buscar Todos os Pokemons com mais de uma habilidade
+Query: MATCH (p:Pokemon)-[:TEM_HABILIDADE]->(h:Ability) WITH p, COUNT(h) AS numHabilidades WHERE numHabilidades > 1 RETURN p.name, numHabilidades
+Resultado: Record<{p.name: "Rowlet", numHabilidades: 2}>
+Record<{p.name: "Decidueye", numHabilidades: 2}>
+Record<{p.name: "Venusaur", numHabilidades: 2}>
+Record<{p.name: "Chesnaught", numHabilidades: 2}>
+Record<{p.name: "Bulbasaur", numHabilidades: 2}>
+Record<{p.name: "Ivysaur", numHabilidades: 2}>
+Record<{p.name: "Dartrix", numHabilidades: 2}>
+Record<{p.name: "Torterra", numHabilidades: 2}>
+Record<{p.name: "Weepinbell", numHabilidades: 2}>
+Record<{p.name: "Leavanny", numHabilidades: 3}>
+Record<{p.name: "Sewaddle", numHabilidades: 3}>
+Record<{p.name: "Hoppip", numHabilidades: 3}>
+Record<{p.name: "Shiftry", numHabilidades: 3}>
+Record<{p.name: "Exeggcute", numHabilidades: 2}>
+Record<{p.name: "Deerling", numHabilidades: 3}>
+Record<{p.name: "Tropius", numHabilidades: 3}>
+Record<{p.name: "Bellsprout", numHabilidades: 2}>
+Record<{p.name: "Skiploom", numHabilidades: 3}>
+Record<{p.name: "Victreebel", numHabilidades: 2}>
+Record<{p.name: "Cottonee", numHabilidades: 3}>
+Record<{p.name: "Sawsbuck", numHabilidades: 3}>
+Record<{p.name: "Gloom", numHabilidades: 2}>
+Record<{p.name: "Swadloon", numHabilidades: 3}>
+Record<{p.name: "Nuzleaf", numHabilidades: 3}>
+Record<{p.name: "Jumpluff", numHabilidades: 3}>
+Record<{p.name: "Exeggutor", numHabilidades: 3}>
+Record<{p.name: "Vileplume", numHabilidades: 2}>
+Record<{p.name: "Whimsicott", numHabilidades: 3}>
+Record<{p.name: "Oddish", numHabilidades: 2}>
+Record<{p.name: "Monferno", numHabilidades: 2}>
+Record<{p.name: "Emboar", numHabilidades: 2}>
+Record<{p.name: "Blaziken", numHabilidades: 2}>
+Record<{p.name: "Incineroar", numHabilidades: 2}>
+Record<{p.name: "Infernape", numHabilidades: 2}>
+Record<{p.name: "Combusken", numHabilidades: 2}>
+Record<{p.name: "Pignite", numHabilidades: 2}>
+Record<{p.name: "Charizard", numHabilidades: 2}>
+Record<{p.name: "Delphox", numHabilidades: 2}>
+Record<{p.name: "Heliolisk", numHabilidades: 3}>
+Record<{p.name: "Helioptile", numHabilidades: 3}>
+Record<{p.name: "Yanma", numHabilidades: 3}>
+Record<{p.name: "Venonat", numHabilidades: 3}>
+Record<{p.name: "Butterfree", numHabilidades: 2}>
+Record<{p.name: "Vivillon", numHabilidades: 3}>
+Record<{p.name: "Nincada", numHabilidades: 2}>
+Record<{p.name: "Joltik", numHabilidades: 3}>
+Record<{p.name: "Galvantula", numHabilidades: 3}>
+Record<{p.name: "Dustox", numHabilidades: 2}>
+Record<{p.name: "Hoothoot", numHabilidades: 3}>
+Record<{p.name: "Venomoth", numHabilidades: 3}>
+Record<{p.name: "Noctowl", numHabilidades: 3}>
+Record<{p.name: "Yanmega", numHabilidades: 3}>
+Record<{p.name: "Sigilyph", numHabilidades: 3}>
+Record<{p.name: "Mothim", numHabilidades: 2}>
+Record<{p.name: "Cutiefly", numHabilidades: 3}>
+Record<{p.name: "Ribombee", numHabilidades: 3}>
+Record<{p.name: "Weedle", numHabilidades: 2}>
+Record<{p.name: "Rattata", numHabilidades: 5}>
+Record<{p.name: "Doduo", numHabilidades: 3}>
+Record<{p.name: "Raticate", numHabilidades: 5}>
+Record<{p.name: "Dodrio", numHabilidades: 3}>
+Record<{p.name: "Scrafty", numHabilidades: 3}>
+Record<{p.name: "Scraggy", numHabilidades: 3}>
+Record<{p.name: "Whirlipede", numHabilidades: 3}>
+Record<{p.name: "Scolipede", numHabilidades: 3}>
+Record<{p.name: "Larvesta", numHabilidades: 2}>
+Record<{p.name: "Spinarak", numHabilidades: 3}>
+Record<{p.name: "Beautifly", numHabilidades: 2}>
+Record<{p.name: "Scyther", numHabilidades: 3}>
+Record<{p.name: "Ariados", numHabilidades: 3}>
+Record<{p.name: "Durant", numHabilidades: 3}>
+Record<{p.name: "Venipede", numHabilidades: 3}>
+Record<{p.name: "Scizor", numHabilidades: 3}>
+Record<{p.name: "Heracross", numHabilidades: 3}>
+Record<{p.name: "Volcarona", numHabilidades: 2}>
+Record<{p.name: "Beedrill", numHabilidades: 2}>
+Record<{p.name: "Ledian", numHabilidades: 3}>
+Record<{p.name: "Ledyba", numHabilidades: 3}>
+Record<{p.name: "Escavalier", numHabilidades: 3}>
+Record<{p.name: "Skorupi", numHabilidades: 3}>
+Record<{p.name: "Binacle", numHabilidades: 3}>
+Record<{p.name: "Spearow", numHabilidades: 2}>
+Record<{p.name: "Barbaracle", numHabilidades: 3}>
+Record<{p.name: "Kingdra", numHabilidades: 3}>
+Record<{p.name: "Fearow", numHabilidades: 2}>
+Record<{p.name: "Drapion", numHabilidades: 3}>
+Record<{p.name: "Chatot", numHabilidades: 3}>
+Record<{p.name: "Wingull", numHabilidades: 3}>
+Record<{p.name: "Farfetch'd", numHabilidades: 3}>
+Record<{p.name: "Starly", numHabilidades: 2}>
+Record<{p.name: "Toucannon", numHabilidades: 3}>
+Record<{p.name: "Skuntank", numHabilidades: 3}>
+Record<{p.name: "Sneasel", numHabilidades: 3}>
+Record<{p.name: "Pidgeotto", numHabilidades: 3}>
+Record<{p.name: "Braviary", numHabilidades: 3}>
+Record<{p.name: "Pikipek", numHabilidades: 3}>
+Record<{p.name: "Rufflet", numHabilidades: 3}>
+Record<{p.name: "Pelipper", numHabilidades: 3}>
+Record<{p.name: "Swanna", numHabilidades: 3}>
+Record<{p.name: "Pidgey", numHabilidades: 3}>
+Record<{p.name: "Skarmory", numHabilidades: 3}>
+Record<{p.name: "Ducklett", numHabilidades: 3}>
+Record<{p.name: "Stunky", numHabilidades: 3}>
+Record<{p.name: "Pidgeot", numHabilidades: 3}>
+Record<{p.name: "Sableye", numHabilidades: 3}>
+Record<{p.name: "Trumbeak", numHabilidades: 3}>
+Record<{p.name: "Unfezant", numHabilidades: 3}>
+Record<{p.name: "Vullaby", numHabilidades: 3}>
+Record<{p.name: "Tranquill", numHabilidades: 3}>
+Record<{p.name: "Pidove", numHabilidades: 3}>
+Record<{p.name: "Mandibuzz", numHabilidades: 3}>
+Record<{p.name: "Fletchling", numHabilidades: 2}>
+Record<{p.name: "Swellow", numHabilidades: 2}>
+Record<{p.name: "Taillow", numHabilidades: 2}>
+Record<{p.name: "Larvitar", numHabilidades: 2}>
+Record<{p.name: "Togetic", numHabilidades: 3}>
+Record<{p.name: "Togekiss", numHabilidades: 3}>
+Record<{p.name: "Combee", numHabilidades: 2}>
+Record<{p.name: "Delibird", numHabilidades: 3}>
+Record<{p.name: "Corsola", numHabilidades: 3}>
+Record<{p.name: "Muk", numHabilidades: 5}>
+Record<{p.name: "Shuckle", numHabilidades: 3}>
+Record<{p.name: "Grimer", numHabilidades: 5}>
+Record<{p.name: "Walrein", numHabilidades: 3}>
+Record<{p.name: "Azumarill", numHabilidades: 3}>
+Record<{p.name: "Spheal", numHabilidades: 3}>
+Record<{p.name: "Mamoswine", numHabilidades: 3}>
+Record<{p.name: "Swinub", numHabilidades: 3}>
+Record<{p.name: "Dewgong", numHabilidades: 3}>
+Record<{p.name: "Piloswine", numHabilidades: 3}>
+Record<{p.name: "Azurill", numHabilidades: 3}>
+Record<{p.name: "Marill", numHabilidades: 3}>
+Record<{p.name: "Sealeo", numHabilidades: 3}>
+Record<{p.name: "Emolga", numHabilidades: 2}>
+Record<{p.name: "Raichu", numHabilidades: 3}>
+Record<{p.name: "Stunfisk", numHabilidades: 3}>
+Record<{p.name: "Zapdos", numHabilidades: 2}>
+Record<{p.name: "Rhydon", numHabilidades: 3}>
+Record<{p.name: "Rhyhorn", numHabilidades: 3}>
+Record<{p.name: "Rhyperior", numHabilidades: 3}>
+Record<{p.name: "Marowak", numHabilidades: 4}>
+Record<{p.name: "Togedemaru", numHabilidades: 3}>
+Record<{p.name: "Gliscor", numHabilidades: 3}>
+Record<{p.name: "Sandslash", numHabilidades: 4}>
+Record<{p.name: "Golem", numHabilidades: 5}>
+Record<{p.name: "Palossand", numHabilidades: 2}>
+Record<{p.name: "Sandshrew", numHabilidades: 4}>
+Record<{p.name: "Gible", numHabilidades: 2}>
+Record<{p.name: "Gabite", numHabilidades: 2}>
+Record<{p.name: "Sandygast", numHabilidades: 2}>
+Record<{p.name: "Geodude", numHabilidades: 5}>
+Record<{p.name: "Gligar", numHabilidades: 3}>
+Record<{p.name: "Garchomp", numHabilidades: 2}>
+Record<{p.name: "Cacturne", numHabilidades: 2}>
+Record<{p.name: "Diglett", numHabilidades: 4}>
+Record<{p.name: "Graveler", numHabilidades: 5}>
+Record<{p.name: "Dugtrio", numHabilidades: 4}>
+Record<{p.name: "Excadrill", numHabilidades: 3}>
+Record<{p.name: "Froslass", numHabilidades: 2}>
+Record<{p.name: "Vulpix", numHabilidades: 4}>
+Record<{p.name: "Articuno", numHabilidades: 2}>
+Record<{p.name: "Ninetales", numHabilidades: 4}>
+Record<{p.name: "Roselia", numHabilidades: 3}>
+Record<{p.name: "Budew", numHabilidades: 3}>
+Record<{p.name: "Qwilfish", numHabilidades: 3}>
+Record<{p.name: "Nidoking", numHabilidades: 3}>
+Record<{p.name: "Skrelp", numHabilidades: 3}>
+Record<{p.name: "Roserade", numHabilidades: 3}>
+Record<{p.name: "Nidoqueen", numHabilidades: 3}>
+Record<{p.name: "Dragalge", numHabilidades: 3}>
+Record<{p.name: "Litleo", numHabilidades: 3}>
+Record<{p.name: "Pyroar", numHabilidades: 3}>
+Record<{p.name: "Landorus", numHabilidades: 3}>
+Record<{p.name: "Steelix", numHabilidades: 3}>
+Record<{p.name: "Darmanitan", numHabilidades: 2}>
+Record<{p.name: "Mawile", numHabilidades: 3}>
+Record<{p.name: "Houndoom", numHabilidades: 3}>
+Record<{p.name: "Houndour", numHabilidades: 3}>
+Record<{p.name: "Lampent", numHabilidades: 3}>
+Record<{p.name: "Litwick", numHabilidades: 3}>
+Record<{p.name: "Chandelure", numHabilidades: 3}>
+Record<{p.name: "Heatran", numHabilidades: 2}>
+Record<{p.name: "Snover", numHabilidades: 2}>
+Record<{p.name: "Aurorus", numHabilidades: 2}>
+Record<{p.name: "Amaura", numHabilidades: 2}>
+Record<{p.name: "Abomasnow", numHabilidades: 2}>
+Record<{p.name: "Jigglypuff", numHabilidades: 3}>
+Record<{p.name: "Igglybuff", numHabilidades: 3}>
+Record<{p.name: "Wigglytuff", numHabilidades: 3}>
+Record<{p.name: "Stufful", numHabilidades: 3}>
+Record<{p.name: "Trevenant", numHabilidades: 3}>
+Record<{p.name: "Phantump", numHabilidades: 3}>
+Record<{p.name: "Noivern", numHabilidades: 3}>
+Record<{p.name: "Pumpkaboo", numHabilidades: 3}>
+Record<{p.name: "Noibat", numHabilidades: 3}>
+Record<{p.name: "Gourgeist", numHabilidades: 3}>
+Record<{p.name: "Dragonite", numHabilidades: 2}>
+Record<{p.name: "Golbat", numHabilidades: 2}>
+Record<{p.name: "Zubat", numHabilidades: 2}>
+Record<{p.name: "Lucario", numHabilidades: 3}>
+Record<{p.name: "Crobat", numHabilidades: 2}>
+Record<{p.name: "Girafarig", numHabilidades: 3}>
+Record<{p.name: "Bisharp", numHabilidades: 3}>
+Record<{p.name: "Oranguru", numHabilidades: 3}>
+Record<{p.name: "Pawniard", numHabilidades: 3}>
+Record<{p.name: "Ninjask", numHabilidades: 2}>
+Record<{p.name: "Inkay", numHabilidades: 3}>
+Record<{p.name: "Spiritomb", numHabilidades: 2}>
+Record<{p.name: "Malamar", numHabilidades: 3}>
+Record<{p.name: "Parasect", numHabilidades: 3}>
+Record<{p.name: "Foongus", numHabilidades: 2}>
+Record<{p.name: "Shiinotic", numHabilidades: 3}>
+Record<{p.name: "Amoonguss", numHabilidades: 2}>
+Record<{p.name: "Morelull", numHabilidades: 3}>
+Record<{p.name: "Breloom", numHabilidades: 3}>
+Record<{p.name: "Paras", numHabilidades: 3}>
+Record<{p.name: "Croagunk", numHabilidades: 3}>
+Record<{p.name: "Toxicroak", numHabilidades: 3}>
+Record<{p.name: "Jynx", numHabilidades: 3}>
+Record<{p.name: "Poliwrath", numHabilidades: 3}>
+Record<{p.name: "Marshtomp", numHabilidades: 2}>
+Record<{p.name: "Swampert", numHabilidades: 2}>
+Record<{p.name: "Frillish", numHabilidades: 3}>
+Record<{p.name: "Jellicent", numHabilidades: 3}>
+Record<{p.name: "Wooper", numHabilidades: 3}>
+Record<{p.name: "Quagsire", numHabilidades: 3}>
+Record<{p.name: "Bruxish", numHabilidades: 3}>
+Record<{p.name: "Probopass", numHabilidades: 3}>
+Record<{p.name: "Gastrodon", numHabilidades: 3}>
+Record<{p.name: "Dedenne", numHabilidades: 3}>
+Record<{p.name: "Meowth", numHabilidades: 4}>
+Record<{p.name: "Diggersby", numHabilidades: 3}>
+Record<{p.name: "Mime Jr.", numHabilidades: 3}>
+Record<{p.name: "Mr. Mime", numHabilidades: 3}>
+Record<{p.name: "Persian", numHabilidades: 5}>
+Record<{p.name: "Masquerain", numHabilidades: 2}>
+Record<{p.name: "Aerodactyl", numHabilidades: 3}>
+Record<{p.name: "Tyranitar", numHabilidades: 2}>
+Record<{p.name: "Vespiquen", numHabilidades: 2}>
+Record<{p.name: "Bewear", numHabilidades: 3}>
+Record<{p.name: "Toxapex", numHabilidades: 3}>
+Record<{p.name: "Hawlucha", numHabilidades: 3}>
+Record<{p.name: "Mareanie", numHabilidades: 3}>
+Record<{p.name: "Chinchou", numHabilidades: 3}>
+Record<{p.name: "Mantine", numHabilidades: 3}>
+Record<{p.name: "Palpitoad", numHabilidades: 3}>
+Record<{p.name: "Lapras", numHabilidades: 3}>
+Record<{p.name: "Dewpider", numHabilidades: 2}>
+Record<{p.name: "Seismitoad", numHabilidades: 3}>
+Record<{p.name: "Lanturn", numHabilidades: 3}>
+Record<{p.name: "Araquanid", numHabilidades: 2}>
+Record<{p.name: "Mantyke", numHabilidades: 3}>
+Record<{p.name: "Carracosta", numHabilidades: 3}>
+Record<{p.name: "Omastar", numHabilidades: 3}>
+Record<{p.name: "Surskit", numHabilidades: 2}>
+Record<{p.name: "Lombre", numHabilidades: 3}>
+Record<{p.name: "Ludicolo", numHabilidades: 3}>
+Record<{p.name: "Anorith", numHabilidades: 2}>
+Record<{p.name: "Kabuto", numHabilidades: 3}>
+Record<{p.name: "Lotad", numHabilidades: 3}>
+Record<{p.name: "Kabutops", numHabilidades: 3}>
+Record<{p.name: "Armaldo", numHabilidades: 2}>
+Record<{p.name: "Omanyte", numHabilidades: 3}>
+Record<{p.name: "Tirtouga", numHabilidades: 3}>
+Record<{p.name: "Relicanth", numHabilidades: 3}>
+Record<{p.name: "Metagross", numHabilidades: 2}>
+Record<{p.name: "Tentacruel", numHabilidades: 3}>
+Record<{p.name: "Carbink", numHabilidades: 2}>
+Record<{p.name: "Metang", numHabilidades: 2}>
+Record<{p.name: "Tentacool", numHabilidades: 3}>
+Record<{p.name: "Beldum", numHabilidades: 2}>
+Record<{p.name: "Lairon", numHabilidades: 3}>
+Record<{p.name: "Onix", numHabilidades: 3}>
+Record<{p.name: "Aron", numHabilidades: 3}>
+Record<{p.name: "Aggron", numHabilidades: 3}>
+Record<{p.name: "Tyrantrum", numHabilidades: 2}>
+Record<{p.name: "Tyrunt", numHabilidades: 2}>
+Record<{p.name: "Forretress", numHabilidades: 2}>
+Record<{p.name: "Magnezone", numHabilidades: 3}>
+Record<{p.name: "Shieldon", numHabilidades: 2}>
+Record<{p.name: "Magneton", numHabilidades: 3}>
+Record<{p.name: "Dwebble", numHabilidades: 3}>
+Record<{p.name: "Crustle", numHabilidades: 3}>
+Record<{p.name: "Magnemite", numHabilidades: 3}>
+Record<{p.name: "Bastiodon", numHabilidades: 2}>
+Record<{p.name: "Whiscash", numHabilidades: 3}>
+Record<{p.name: "Barboach", numHabilidades: 3}>
+Record<{p.name: "Slowpoke", numHabilidades: 3}>
+Record<{p.name: "Salazzle", numHabilidades: 2}>
+Record<{p.name: "Numel", numHabilidades: 3}>
+Record<{p.name: "Slowbro", numHabilidades: 3}>
+Record<{p.name: "Salandit", numHabilidades: 2}>
+Record<{p.name: "Slowking", numHabilidades: 3}>
+Record<{p.name: "Smoochum", numHabilidades: 3}>
+Record<{p.name: "Ho-Oh", numHabilidades: 2}>
+Record<{p.name: "Starmie", numHabilidades: 3}>
+Record<{p.name: "Empoleon", numHabilidades: 2}>
+Record<{p.name: "Thundurus", numHabilidades: 3}>
+Record<{p.name: "Natu", numHabilidades: 3}>
+Record<{p.name: "Xatu", numHabilidades: 3}>
+Record<{p.name: "Crawdaunt", numHabilidades: 3}>
+Record<{p.name: "Cloyster", numHabilidades: 3}>
+Record<{p.name: "Kommo-o", numHabilidades: 3}>
+Record<{p.name: "Wormadam", numHabilidades: 2}>
+Record<{p.name: "Hakamo-o", numHabilidades: 3}>
+Record<{p.name: "Giratina", numHabilidades: 3}>
+Record<{p.name: "Bronzong", numHabilidades: 3}>
+Record<{p.name: "Bronzor", numHabilidades: 3}>
+Record<{p.name: "Magcargo", numHabilidades: 3}>
+Record<{p.name: "Staravia", numHabilidades: 2}>
+Record<{p.name: "Staraptor", numHabilidades: 2}>
+Record<{p.name: "Shaymin", numHabilidades: 2}>
+Record<{p.name: "Altaria", numHabilidades: 2}>
+Record<{p.name: "Swablu", numHabilidades: 2}>
+Record<{p.name: "Gallade", numHabilidades: 2}>
+Record<{p.name: "Krokorok", numHabilidades: 3}>
+Record<{p.name: "Gyarados", numHabilidades: 2}>
+Record<{p.name: "Krookodile", numHabilidades: 3}>
+Record<{p.name: "Salamence", numHabilidades: 2}>
+Record<{p.name: "Sandile", numHabilidades: 3}>
+Record<{p.name: "Honchkrow", numHabilidades: 3}>
+Record<{p.name: "Weavile", numHabilidades: 2}>
+Record<{p.name: "Palkia", numHabilidades: 2}>
+Record<{p.name: "Lugia", numHabilidades: 2}>
+Record<{p.name: "Moltres", numHabilidades: 2}>
+Record<{p.name: "Dialga", numHabilidades: 2}>
+Record<{p.name: "Kyurem", numHabilidades: 3}>
+Record<{p.name: "Talonflame", numHabilidades: 2}>
+Record<{p.name: "Fletchinder", numHabilidades: 2}>
+Record<{p.name: "Murkrow", numHabilidades: 3}>
+Record<{p.name: "Golett", numHabilidades: 3}>
+Record<{p.name: "Pangoro", numHabilidades: 3}>
+Record<{p.name: "Golurk", numHabilidades: 3}>
+Record<{p.name: "Crabominable", numHabilidades: 3}>
+Record<{p.name: "Gardevoir", numHabilidades: 3}>
+Record<{p.name: "Ralts", numHabilidades: 3}>
+Record<{p.name: "Kirlia", numHabilidades: 3}>
+Record<{p.name: "Drampa", numHabilidades: 3}>
+Record<{p.name: "Sharpedo", numHabilidades: 2}>
+Record<{p.name: "Carvanha", numHabilidades: 2}>
+Record<{p.name: "Bibarel", numHabilidades: 3}>
+Record<{p.name: "Woobat", numHabilidades: 3}>
+Record<{p.name: "Swoobat", numHabilidades: 3}>
+Record<{p.name: "Klefki", numHabilidades: 2}>
+Record<{p.name: "Camerupt", numHabilidades: 3}>
+Record<{p.name: "Greninja", numHabilidades: 3}>
+Record<{p.name: "Primarina", numHabilidades: 2}>
+Record<{p.name: "Tapu Fini", numHabilidades: 2}>
+Record<{p.name: "Medicham", numHabilidades: 2}>
+Record<{p.name: "Tapu Bulu", numHabilidades: 2}>
+Record<{p.name: "Meditite", numHabilidades: 2}>
+Record<{p.name: "Tapu Koko", numHabilidades: 2}>
+Record<{p.name: "Tapu Lele", numHabilidades: 2}>
+Record<{p.name: "Ferrothorn", numHabilidades: 2}>
+Record<{p.name: "Lileep", numHabilidades: 2}>
+Record<{p.name: "Cradily", numHabilidades: 2}>
+Record<{p.name: "Drifblim", numHabilidades: 3}>
+Record<{p.name: "Drifloon", numHabilidades: 3}>
+Record<{p.name: "Zygarde", numHabilidades: 2}>
+
+Título da Consulta: Buscar Todos os Pokemons que tenham um tipo duplo (sendo um deles rock) e a habilidade "Sturdy"
+Query: MATCH (p:Pokemon)-[:É_DE_TIPO]->(t1:Type), (p)-[:É_DE_TIPO]->(t2:Type), (p)-[:TEM_HABILIDADE]->(h:Ability)
+WHERE t1.name = 'rock' AND t2.name <> 'rock' AND h.name = 'Sturdy'
+RETURN p.name, t1.name, t2.name, h.name
+
+Resultado: Record<{p.name: "Geodude", t1.name: "rock", t2.name: "ground", h.name: "Sturdy"}>
+Record<{p.name: "Crustle", t1.name: "rock", t2.name: "bug", h.name: "Sturdy"}>
+Record<{p.name: "Aron", t1.name: "rock", t2.name: "steel", h.name: "Sturdy"}>
+Record<{p.name: "Probopass", t1.name: "rock", t2.name: "steel", h.name: "Sturdy"}>
+Record<{p.name: "Dwebble", t1.name: "rock", t2.name: "bug", h.name: "Sturdy"}>
+Record<{p.name: "Lairon", t1.name: "rock", t2.name: "steel", h.name: "Sturdy"}>
+Record<{p.name: "Carbink", t1.name: "rock", t2.name: "fairy", h.name: "Sturdy"}>
+Record<{p.name: "Onix", t1.name: "rock", t2.name: "ground", h.name: "Sturdy"}>
+Record<{p.name: "Carracosta", t1.name: "rock", t2.name: "water", h.name: "Sturdy"}>
+Record<{p.name: "Graveler", t1.name: "rock", t2.name: "ground", h.name: "Sturdy"}>
+Record<{p.name: "Bastiodon", t1.name: "rock", t2.name: "steel", h.name: "Sturdy"}>
+Record<{p.name: "Aggron", t1.name: "rock", t2.name: "steel", h.name: "Sturdy"}>
+Record<{p.name: "Relicanth", t1.name: "rock", t2.name: "water", h.name: "Sturdy"}>
+Record<{p.name: "Golem", t1.name: "rock", t2.name: "ground", h.name: "Sturdy"}>
+Record<{p.name: "Shieldon", t1.name: "rock", t2.name: "steel", h.name: "Sturdy"}>
+Record<{p.name: "Shuckle", t1.name: "rock", t2.name: "bug", h.name: "Sturdy"}>
+Record<{p.name: "Tirtouga", t1.name: "rock", t2.name: "water", h.name: "Sturdy"}>
+Record<{p.name: "Tyrunt", t1.name: "rock", t2.name: "dragon", h.name: "Sturdy"}>
+
+Título da Consulta: Buscar média de peso e altura dos Pokémon por tipo
+Query: MATCH (p:Pokemon)-[:É_DE_TIPO]->(t:Type) WITH t.name AS Tipo, AVG(p.weightKg) AS PesoMedio, AVG(p.heightM) AS AlturaMedia RETURN Tipo, PesoMedio, AlturaMedia ORDER BY Tipo
+Resultado: Record<{Tipo: "bug", PesoMedio: 33.25584415584416, AlturaMedia: 0.8922077922077922}>
+Record<{Tipo: "dark", PesoMedio: 68.34347826086956, AlturaMedia: 1.2869565217391303}>
+Record<{Tipo: "dragon", PesoMedio: 156.67045454545456, AlturaMedia: 2.111363636363636}>
+Record<{Tipo: "electric", PesoMedio: 41.365217391304355, AlturaMedia: 0.9891304347826089}>
+Record<{Tipo: "fairy", PesoMedio: 19.304255319148936, AlturaMedia: 0.7638297872340425}>
+Record<{Tipo: "fighting", PesoMedio: 71.30943396226414, AlturaMedia: 1.3}>
+Record<{Tipo: "fire", PesoMedio: 62.89836065573768, AlturaMedia: 1.1540983606557376}>
+Record<{Tipo: "flying", PesoMedio: 50.869387755102025, AlturaMedia: 1.3418367346938773}>
+Record<{Tipo: "ghost", PesoMedio: 68.08999999999997, AlturaMedia: 1.3199999999999998}>
+Record<{Tipo: "grass", PesoMedio: 34.01770833333333, AlturaMedia: 0.9708333333333333}>
+Record<{Tipo: "ground", PesoMedio: 126.18392857142858, AlturaMedia: 1.5767857142857145}>
+Record<{Tipo: "ice", PesoMedio: 113.25588235294117, AlturaMedia: 1.3941176470588237}>
+Record<{Tipo: "normal", PesoMedio: 45.561904761904785, AlturaMedia: 1.0200000000000005}>
+Record<{Tipo: "poison", PesoMedio: 29.777419354838717, AlturaMedia: 1.07258064516129}>
+Record<{Tipo: "psychic", PesoMedio: 65.34, AlturaMedia: 1.0787500000000005}>
+Record<{Tipo: "rock", PesoMedio: 96.08181818181818, AlturaMedia: 1.2509090909090907}>
+Record<{Tipo: "steel", PesoMedio: 147.13695652173914, AlturaMedia: 1.5108695652173916}>
+Record<{Tipo: "water", PesoMedio: 51.14045801526717, AlturaMedia: 1.2358778625954199}>
+

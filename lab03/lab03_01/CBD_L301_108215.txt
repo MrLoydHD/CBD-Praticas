@@ -1,0 +1,91 @@
+To run cassandra in a docker container, run the following command:
+
+ -- docker-compose up -d
+
+
+CheatSheet:
+
+keyspace ->  outmost container for data in cassandra
+to create a keyspace:
+    CREATE KEYSPACE keyspace name
+    WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 3};
+
+column family -> container for an ordered collection of rows
+the column families may be defined, but the columns themselves are not
+attributes of a column family:
+* keys_cached
+* rows_cached
+* preload_row_cache
+a row is not forced to have all the columns, unlike relational databases
+
+column -> basic data structure of cassandra with three values, name, value, and timestamp
+
+supercolumn -> special column, stores a map of sub-columns
+values: name, map<byte[], column>
+important to keep columns that are likely to be queried together together to reduce search timestamp
+
+cql -> cassandra query language
+cqlsh -> cassandra query language shell
+start cqlsh with *cqlsh* command
+some shell commands:
+    HELP
+    CAPTURE
+    CONSISTENCY
+    COPY
+    DESCRIBE
+    EXPAND
+    EXIT
+    PAGING
+    SHOW
+    SOURCE
+    TRACING
+some data definition commands:
+    CREATE KEYSPACE
+    USE
+    ALTER KEYSPACE
+    DROP KEYSPACE
+    CREATE TABLE
+    ALTER TABLE
+    DROP TABLE
+    TRUNCATE
+    CREATE INDEX
+    DROP INDEX
+some data manipulation commands:
+    INSERT
+    UPDATE
+    DELETE
+    BATCH
+cql clauses:
+    SELECT
+    WHERE
+    ORDERBY
+
+
+some of cqlsh interations made by me:
+
+    create keyspace test with replication = {'class': 'SimpleStrategy', 'replication_factor': 3};
+    use test;
+
+    create table users (
+        user_id int primary key,
+        fname text,
+        lname text
+    );
+
+    insert into users (user_id, fname, lname) values (1745, 'john', 'smith');
+
+    select * from users;
+
+    update users set fname = 'johnathan' where user_id = 1745;
+
+    select * from users;
+
+    delete from users where user_id = 1745;
+
+    select * from users;
+
+    drop table users;
+
+    drop keyspace test;
+
+    exit

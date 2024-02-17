@@ -1,0 +1,366 @@
+Bem vindo ao sistema de mensagens!
+---------------------------------
+Insira o seu username:
+Hugo
+---------------------------------
+Hugo logado no sistema
+1 - Seguir utilizador
+2 - Deixar de seguir utilizador
+3 - Listar seguidores
+4 - Listar seguidos
+5 - Fazer um post
+6 - Ver timeline de mensagens de utilizador
+7 - Sair
+
+
+
+Bem vindo ao sistema de mensagens!
+---------------------------------
+Insira o seu username:
+Joao
+---------------------------------
+Joao logado no sistema
+1 - Seguir utilizador
+2 - Deixar de seguir utilizador
+3 - Listar seguidores
+4 - Listar seguidos
+5 - Fazer um post
+6 - Ver timeline de mensagens de utilizador
+7 - Sair
+
+Insira o seu username:
+Hugo
+Utilizador já existe!
+
+
+
+
+
+
+
+
+
+
+Bem vindo ao sistema de mensagens!
+---------------------------------
+Insira o seu username:
+Joao
+Utilizador já existe!
+Deseja fazer login? (y/n)
+y
+---------------------------------
+Joao logado no sistema
+1 - Seguir utilizador
+2 - Deixar de seguir utilizador
+3 - Listar seguidores
+4 - Listar seguidos
+5 - Fazer um post
+6 - Ver timeline de mensagens de utilizador
+7 - Lista de utilizadores
+8 - Sair
+
+7
+---------------------------------
+Lista de utilizadores:
+Joao
+Kiko
+Tony
+Rui
+Hugo
+Nuno
+---------------------------------
+Joao logado no sistema
+1 - Seguir utilizador
+2 - Deixar de seguir utilizador
+3 - Listar seguidores
+4 - Listar seguidos
+5 - Fazer um post
+6 - Ver timeline de mensagens de utilizador
+7 - Lista de utilizadores
+8 - Sair
+
+3
+---------------------------------
+Seguidores:
+Hugo
+---------------------------------
+Joao logado no sistema
+1 - Seguir utilizador
+2 - Deixar de seguir utilizador
+3 - Listar seguidores
+4 - Listar seguidos
+5 - Fazer um post
+6 - Ver timeline de mensagens de utilizador
+7 - Lista de utilizadores
+8 - Sair
+
+5
+---------------------------------
+Insira o texto do post:
+Ola a todos
+Post feito com sucesso!
+---------------------------------
+Joao logado no sistema
+1 - Seguir utilizador
+2 - Deixar de seguir utilizador
+3 - Listar seguidores
+4 - Listar seguidos
+5 - Fazer um post
+6 - Ver timeline de mensagens de utilizador
+7 - Lista de utilizadores
+8 - Sair
+
+4
+---------------------------------
+Seguidos:
+O utilizador não segue ninguém!
+---------------------------------
+Joao logado no sistema
+1 - Seguir utilizador
+2 - Deixar de seguir utilizador
+3 - Listar seguidores
+4 - Listar seguidos
+5 - Fazer um post
+6 - Ver timeline de mensagens de utilizador
+7 - Lista de utilizadores
+8 - Sair
+
+3
+---------------------------------
+Seguidores:
+Hugo
+---------------------------------
+Joao logado no sistema
+1 - Seguir utilizador
+2 - Deixar de seguir utilizador
+3 - Listar seguidores
+4 - Listar seguidos
+5 - Fazer um post
+6 - Ver timeline de mensagens de utilizador
+7 - Lista de utilizadores
+8 - Sair
+
+
+
+
+
+
+
+
+
+Bem vindo ao sistema de mensagens!
+---------------------------------
+Insira o seu username:
+Hugo
+Utilizador já existe!
+Deseja fazer login? (y/n)
+y
+---------------------------------
+Hugo logado no sistema
+1 - Seguir utilizador
+2 - Deixar de seguir utilizador
+3 - Listar seguidores
+4 - Listar seguidos
+5 - Fazer um post
+6 - Ver timeline de mensagens de utilizador
+7 - Lista de utilizadores
+8 - Sair
+
+1
+---------------------------------
+Insira o username do utilizador que pretende seguir:
+Joao
+Já está a seguir o utilizador Joao
+---------------------------------
+Hugo logado no sistema
+1 - Seguir utilizador
+2 - Deixar de seguir utilizador
+3 - Listar seguidores
+4 - Listar seguidos
+5 - Fazer um post
+6 - Ver timeline de mensagens de utilizador
+7 - Lista de utilizadores
+8 - Sair
+
+4
+---------------------------------
+Seguidos:
+Joao
+---------------------------------
+Hugo logado no sistema
+1 - Seguir utilizador
+2 - Deixar de seguir utilizador
+3 - Listar seguidores
+4 - Listar seguidos
+5 - Fazer um post
+6 - Ver timeline de mensagens de utilizador
+7 - Lista de utilizadores
+8 - Sair
+
+1
+---------------------------------
+Insira o username do utilizador que pretende seguir:
+Nuno
+Agora está a seguir o utilizador Nuno
+---------------------------------
+Hugo logado no sistema
+1 - Seguir utilizador
+2 - Deixar de seguir utilizador
+3 - Listar seguidores
+4 - Listar seguidos
+5 - Fazer um post
+6 - Ver timeline de mensagens de utilizador
+7 - Lista de utilizadores
+8 - Sair
+
+6
+---------------------------------
+Insira o username:
+Nuno
+O utilizador não tem posts!
+---------------------------------
+Hugo logado no sistema
+1 - Seguir utilizador
+2 - Deixar de seguir utilizador
+3 - Listar seguidores
+4 - Listar seguidos
+5 - Fazer um post
+6 - Ver timeline de mensagens de utilizador
+7 - Lista de utilizadores
+8 - Sair
+
+2
+---------------------------------
+Insira o username do utilizador que pretende deixar de seguir:
+das
+O utilizador das não existe!
+---------------------------------
+Hugo logado no sistema
+1 - Seguir utilizador
+2 - Deixar de seguir utilizador
+3 - Listar seguidores
+4 - Listar seguidos
+5 - Fazer um post
+6 - Ver timeline de mensagens de utilizador
+7 - Lista de utilizadores
+8 - Sair
+
+2
+---------------------------------
+Insira o username do utilizador que pretende deixar de seguir:
+Nuno
+Deixou de seguir o utilizador Nuno
+---------------------------------
+Hugo logado no sistema
+1 - Seguir utilizador
+2 - Deixar de seguir utilizador
+3 - Listar seguidores
+4 - Listar seguidos
+5 - Fazer um post
+6 - Ver timeline de mensagens de utilizador
+7 - Lista de utilizadores
+8 - Sair
+
+1
+---------------------------------
+Insira o username do utilizador que pretende seguir:
+dada
+O utilizador dada não existe!
+---------------------------------
+Hugo logado no sistema
+1 - Seguir utilizador
+2 - Deixar de seguir utilizador
+3 - Listar seguidores
+4 - Listar seguidos
+5 - Fazer um post
+6 - Ver timeline de mensagens de utilizador
+7 - Lista de utilizadores
+8 - Sair
+
+
+
+
+
+
+
+
+
+
+
+Bem vindo ao sistema de mensagens!
+---------------------------------
+Insira o seu username:
+Joao
+Utilizador já existe!
+Deseja fazer login? (y/n)
+y
+---------------------------------
+Joao logado no sistema
+1 - Seguir utilizador
+2 - Deixar de seguir utilizador
+3 - Listar seguidores
+4 - Listar seguidos
+5 - Fazer um post
+6 - Ver timeline de mensagens de utilizador
+7 - Lista de utilizadores
+8 - Eliminar utilizador
+9 - Sair
+
+8
+---------------------------------
+Utilizador eliminado com sucesso!
+---------------------------------
+A sair do sistema...
+hugo@pop-os:~/Desktop/lei/CBD/cbd13$  cd /home/hugo/Desktop/lei/CBD/cbd13 ; /usr/bin/env /usr/lib/jvm/temurin-8-jdk-amd64/bin/java -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:42149 -cp /tmp/cp_165g0k4tfvrj9xqjokw7njf33.jar redis.ex3.Ex06.sistemaMensagens 
+Bem vindo ao sistema de mensagens!
+---------------------------------
+Insira o seu username:
+Hugo
+Utilizador já existe!
+Deseja fazer login? (y/n)
+y
+---------------------------------
+Hugo logado no sistema
+1 - Seguir utilizador
+2 - Deixar de seguir utilizador
+3 - Listar seguidores
+4 - Listar seguidos
+5 - Fazer um post
+6 - Ver timeline de mensagens de utilizador
+7 - Lista de utilizadores
+8 - Eliminar utilizador
+9 - Sair
+
+4
+---------------------------------
+Seguidos:
+O utilizador não segue ninguém!
+---------------------------------
+Hugo logado no sistema
+1 - Seguir utilizador
+2 - Deixar de seguir utilizador
+3 - Listar seguidores
+4 - Listar seguidos
+5 - Fazer um post
+6 - Ver timeline de mensagens de utilizador
+7 - Lista de utilizadores
+8 - Eliminar utilizador
+9 - Sair
+
+3
+---------------------------------
+Seguidores:
+Nuno
+---------------------------------
+Hugo logado no sistema
+1 - Seguir utilizador
+2 - Deixar de seguir utilizador
+3 - Listar seguidores
+4 - Listar seguidos
+5 - Fazer um post
+6 - Ver timeline de mensagens de utilizador
+7 - Lista de utilizadores
+8 - Eliminar utilizador
+9 - Sair
+
+

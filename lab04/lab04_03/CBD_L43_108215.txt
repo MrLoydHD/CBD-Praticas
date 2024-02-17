@@ -1,0 +1,87 @@
+// NMEC: 108215
+
+# a)
+
+Entidades (Nós)
+
+Usuário:
+    Atributos:
+        - svn_id: Identificador único do usuário no sistema SVN.
+        - real_name: Nome real do usuário.
+        - organization: A organização à qual o usuário está afiliado.
+
+
+Projeto:
+    Atributos:
+        - project_name: Nome do projeto.
+
+Relações (Arestas)
+    Colabora Em (COLLABORATES_IN):
+        - Relação de um Usuário para um Projeto.
+
+        Atributos:
+            - role_on_project: O papel do usuário no projeto (por exemplo, "Committer").
+
+Resumo do Modelo
+Usuário(svn_id, real_name, organization)
+Projeto(project_name)
+Relações:
+
+Usuário -[COLLABORATES_IN {role_on_project}]-> Projeto
+
+# b)
+
+LOAD CSV WITH HEADERS FROM 'file:///git_selection.csv' AS row
+MERGE (u:User {svn_id: row.svn_id, organization: row.organization, real_name: row.real_name})
+MERGE (p:Project {name: row.project_name})
+MERGE (u)-[:COLLABORATES_IN {role: row.role_on_project}]->(p)
+
+# 1. Liste a informação de cada utilizador.
+
+MATCH (u:User)
+RETURN u
+
+# 2. Liste o nome de cada utilizador.
+
+MATCH (u:User)
+RETURN u.real_name
+
+
+# 3. Liste a informação de cada projeto, no qual tenha participado pelo menos um utilizador.
+
+MATCH (p:Project)<-[:COLLABORATES_IN]-(:User)
+RETURN DISTINCT p
+
+# 4. Liste os utilizadores e total de projetos em que cada um colabora.
+
+MATCH (u:User)-[:COLLABORATES_IN]->(p:Project)
+RETURN u.real_name, COUNT(Distinct p) AS TotalProjetos
+
+# 5. Liste os utilizadores e do total de projetos em que cada colabora ordenados por ordem decrescente do total.
+
+MATCH (u:User)-[:COLLABORATES_IN]->(p:Project)
+RETURN u.real_name, COUNT(Distinct p) AS TotalProjetos
+ORDER BY TotalProjetos DESC
+
+# 6. Liste projetos e total de membros em cada projeto.
+
+MATCH (p:Project)<-[:COLLABORATES_IN]-(u:User)
+RETURN p.name, COUNT(Distinct u) AS TotalMembros
+
+# 7. Liste projetos e total de membros com a role "Committer" em cada projeto.
+
+MATCH (p:Project)<-[r:COLLABORATES_IN]-(u:User)
+WHERE r.role = "Committer"
+RETURN p.name, COUNT(Distinct u) AS TotalCommitters
+
+# 8. Liste todos os utilizadores que participaram nos mesmo projetos do que o utilizador "atm" (id). Mostre os atributos: nome de "atm", nome utilizador 2, nome do projeto.
+
+MATCH (atm:User {svn_id: "atm"})-[:COLLABORATES_IN]->(p:Project)<-[:COLLABORATES_IN]-(u:User)
+WHERE u.svn_id <> "atm"
+RETURN atm.real_name, u.real_name, p.name
+
+# 9. Liste todos os utilizadores que participaram com a role "Committer" em projetos em que o utilizador "atm" (id1) participou com a role "PMC".
+
+MATCH (atm:User {svn_id: "atm"})-[r1:COLLABORATES_IN]->(p:Project)<-[r2:COLLABORATES_IN]-(u:User)
+WHERE r1.role = "PMC" AND r2.role = "Committer"
+RETURN u.real_name, p.name

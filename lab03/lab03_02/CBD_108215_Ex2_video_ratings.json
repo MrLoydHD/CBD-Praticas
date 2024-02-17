@@ -1,0 +1,92 @@
+[
+  {
+    "video_id": 1,
+    "rating_id": 1,
+    "rating_value": 5
+  },
+  {
+    "video_id": 1,
+    "rating_id": 2,
+    "rating_value": 4
+  },
+  {
+    "video_id": 1,
+    "rating_id": 3,
+    "rating_value": 3
+  },
+  {
+    "video_id": 1,
+    "rating_id": 4,
+    "rating_value": 2
+  },
+  {
+    "video_id": 1,
+    "rating_id": 5,
+    "rating_value": 1
+  },
+  {
+    "video_id": 2,
+    "rating_id": 6,
+    "rating_value": 5
+  },
+  {
+    "video_id": 2,
+    "rating_id": 7,
+    "rating_value": 4
+  },
+  {
+    "video_id": 2,
+    "rating_id": 8,
+    "rating_value": 3
+  },
+  {
+    "video_id": 2,
+    "rating_id": 9,
+    "rating_value": 2
+  },
+  {
+    "video_id": 2,
+    "rating_id": 10,
+    "rating_value": 1
+  },
+  {
+    "video_id": 4,
+    "rating_id": 16,
+    "rating_value": 5
+  },
+  {
+    "video_id": 4,
+    "rating_id": 17,
+    "rating_value": 4
+  },
+  {
+    "video_id": 4,
+    "rating_id": 18,
+    "rating_value": 3
+  },
+  {
+    "video_id": 3,
+    "rating_id": 11,
+    "rating_value": 5
+  },
+  {
+    "video_id": 3,
+    "rating_id": 12,
+    "rating_value": 4
+  },
+  {
+    "video_id": 3,
+    "rating_id": 13,
+    "rating_value": 3
+  },
+  {
+    "video_id": 3,
+    "rating_id": 14,
+    "rating_value": 2
+  },
+  {
+    "video_id": 3,
+    "rating_id": 15,
+    "rating_value": 1
+  }
+]

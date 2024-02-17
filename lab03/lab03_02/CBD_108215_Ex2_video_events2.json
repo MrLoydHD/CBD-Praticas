@@ -1,0 +1,107 @@
+[
+  {
+    "video_id": 2,
+    "username": "PTM",
+    "event_timestamp": "2023-11-18 20:01:49.218",
+    "event_type": "PAUSE",
+    "video_timestamp": "2023-11-18 20:01:49.218"
+  },
+  {
+    "video_id": 1,
+    "username": "RicFazeres",
+    "event_timestamp": "2023-11-18 20:01:49.200",
+    "event_type": "PLAY",
+    "video_timestamp": "2023-11-18 20:01:49.200"
+  },
+  {
+    "video_id": 4,
+    "username": "OsPrimos",
+    "event_timestamp": "2023-11-18 20:01:49.251",
+    "event_type": "PAUSE",
+    "video_timestamp": "2023-11-18 20:01:49.251"
+  },
+  {
+    "video_id": 1,
+    "username": "OsPrimos",
+    "event_timestamp": "2023-11-18 20:01:49.188",
+    "event_type": "PLAY",
+    "video_timestamp": "2023-11-18 20:01:49.188"
+  },
+  {
+    "video_id": 2,
+    "username": "D4rkFrame",
+    "event_timestamp": "2023-11-18 20:01:49.224",
+    "event_type": "PLAY",
+    "video_timestamp": "2023-11-18 20:01:49.224"
+  },
+  {
+    "video_id": 5,
+    "username": "PTM",
+    "event_timestamp": "2023-11-18 20:01:49.267",
+    "event_type": "STOP",
+    "video_timestamp": "2023-11-18 20:01:49.268"
+  },
+  {
+    "video_id": 1,
+    "username": "D4rkFrame",
+    "event_timestamp": "2023-11-18 20:01:49.212",
+    "event_type": "STOP",
+    "video_timestamp": "2023-11-18 20:01:49.212"
+  },
+  {
+    "video_id": 1,
+    "username": "Wuant",
+    "event_timestamp": "2023-11-18 20:01:49.194",
+    "event_type": "PAUSE",
+    "video_timestamp": "2023-11-18 20:01:49.194"
+  },
+  {
+    "video_id": 3,
+    "username": "Dayzer",
+    "event_timestamp": "2023-11-18 20:01:49.246",
+    "event_type": "PLAY",
+    "video_timestamp": "2023-11-18 20:01:49.246"
+  },
+  {
+    "video_id": 5,
+    "username": "RicFazeres",
+    "event_timestamp": "2023-11-18 20:01:49.263",
+    "event_type": "PAUSE",
+    "video_timestamp": "2023-11-18 20:01:49.263"
+  },
+  {
+    "video_id": 4,
+    "username": "Wuant",
+    "event_timestamp": "2023-11-18 20:01:49.256",
+    "event_type": "PLAY",
+    "video_timestamp": "2023-11-18 20:01:49.256"
+  },
+  {
+    "video_id": 1,
+    "username": "PTM",
+    "event_timestamp": "2023-11-18 20:01:49.207",
+    "event_type": "PAUSE",
+    "video_timestamp": "2023-11-18 20:01:49.207"
+  },
+  {
+    "video_id": 3,
+    "username": "Vinnicius13",
+    "event_timestamp": "2023-11-18 20:01:49.234",
+    "event_type": "PLAY",
+    "video_timestamp": "2023-11-18 20:01:49.235"
+  },
+  {
+    "video_id": 2,
+    "username": "SirKazzio",
+    "event_timestamp": "2023-11-18 20:01:49.230",
+    "event_type": "PAUSE",
+    "video_timestamp": "2023-11-18 20:01:49.230"
+  },
+  {
+    "video_id": 3,
+    "username": "Flygon2003",
+    "event_timestamp": "2023-11-18 20:01:49.240",
+    "event_type": "STOP",
+    "video_timestamp": "2023-11-18 20:01:49.240"
+  }
+]

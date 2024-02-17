@@ -1,0 +1,72 @@
+[
+  {
+    "id": 5,
+    "email": "ptm@email.com",
+    "name": "Pedro Teixera da Mota",
+    "registration_timestamp": "2023-11-18 18:16:53.743",
+    "username": "PTM"
+  },
+  {
+    "id": 10,
+    "email": "dayzer@email.com",
+    "name": "Tomas",
+    "registration_timestamp": "2023-11-18 18:16:53.775",
+    "username": "Dayzer"
+  },
+  {
+    "id": 1,
+    "email": "osprimos@email.com",
+    "name": "Os Primos",
+    "registration_timestamp": "2023-11-18 18:16:53.707",
+    "username": "OsPrimos"
+  },
+  {
+    "id": 8,
+    "email": "vin13@email.com",
+    "name": "Vinnicius",
+    "registration_timestamp": "2023-11-18 18:16:53.763",
+    "username": "Vinnicius13"
+  },
+  {
+    "id": 2,
+    "email": "tiagovski@email.com",
+    "name": "tiagovski",
+    "registration_timestamp": "2023-11-18 18:16:53.724",
+    "username": "Tiagovski"
+  },
+  {
+    "id": 4,
+    "email": "ric@email.com",
+    "name": "Ricardo Fazeres",
+    "registration_timestamp": "2023-11-18 18:16:53.737",
+    "username": "RicFazeres"
+  },
+  {
+    "id": 7,
+    "email": "bots@email.com",
+    "name": "Antony Kazzio",
+    "registration_timestamp": "2023-11-18 18:16:53.757",
+    "username": "SirKazzio"
+  },
+  {
+    "id": 6,
+    "email": "dframe@email.com",
+    "name": "Dark Frame",
+    "registration_timestamp": "2023-11-18 18:16:53.751",
+    "username": "D4rkFrame"
+  },
+  {
+    "id": 9,
+    "email": "flygon@email.com",
+    "name": "Flygas",
+    "registration_timestamp": "2023-11-18 18:16:53.769",
+    "username": "Flygon2003"
+  },
+  {
+    "id": 3,
+    "email": "wuant@email.com",
+    "name": "Paulo Pinto",
+    "registration_timestamp": "2023-11-18 18:16:53.730",
+    "username": "Wuant"
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "comment_id": 5,
+    "author_username": "Wuant",
+    "comment": "Top Chucha",
+    "comment_timestamp": "2023-11-18 18:32:16.183",
+    "video_id": 5
+  },
+  {
+    "comment_id": 10,
+    "author_username": "Dayzer",
+    "comment": "Muito bom",
+    "comment_timestamp": "2023-11-18 18:32:16.216",
+    "video_id": 11
+  },
+  {
+    "comment_id": 11,
+    "author_username": "Tiagovski",
+    "comment": "Muito bom",
+    "comment_timestamp": "2023-11-18 18:32:16.221",
+    "video_id": 10
+  },
+  {
+    "comment_id": 1,
+    "author_username": "Wuant",
+    "comment": "Muito bom Primos",
+    "comment_timestamp": "2023-11-18 18:32:16.150",
+    "video_id": 1
+  },
+  {
+    "comment_id": 8,
+    "author_username": "Tiagovski",
+    "comment": "Muita bom 2",
+    "comment_timestamp": "2023-11-18 18:32:16.202",
+    "video_id": 8
+  },
+  {
+    "comment_id": 2,
+    "author_username": "RicFazeres",
+    "comment": "Muito mau Primos",
+    "comment_timestamp": "2023-11-18 18:32:16.162",
+    "video_id": 1
+  },
+  {
+    "comment_id": 4,
+    "author_username": "Os Primos",
+    "comment": " bom",
+    "comment_timestamp": "2023-11-18 18:32:16.177",
+    "video_id": 4
+  },
+  {
+    "comment_id": 7,
+    "author_username": "Tiagovski",
+    "comment": "Muita bom",
+    "comment_timestamp": "2023-11-18 18:32:16.197",
+    "video_id": 7
+  },
+  {
+    "comment_id": 6,
+    "author_username": "D4rkFrame",
+    "comment": "Tive de comentar o meu proprio video, sad",
+    "comment_timestamp": "2023-11-18 18:32:16.191",
+    "video_id": 6
+  },
+  {
+    "comment_id": 9,
+    "author_username": "Flygon2003",
+    "comment": "Muito bom",
+    "comment_timestamp": "2023-11-18 18:32:16.209",
+    "video_id": 8
+  },
+  {
+    "comment_id": 12,
+    "author_username": "Tiagovski",
+    "comment": "Afinal não curti",
+    "comment_timestamp": "2023-11-18 18:32:16.228",
+    "video_id": 10
+  },
+  {
+    "comment_id": 3,
+    "author_username": "Os Primos",
+    "comment": "UABO",
+    "comment_timestamp": "2023-11-18 18:32:16.170",
+    "video_id": 3
+  }
+]

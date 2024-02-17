@@ -1,0 +1,73 @@
+
+As implementações baseadas em Redis e MongoDB têm diferentes modelos de dados e são mais adequadas para diferentes tipos de problemas. Aqui estão as diferenças conceptuais e os prós e contras de cada solução, juntamente com a adequação a este problema específico:
+
+Implementação baseada em Redis:
+
+1. Modelo de Dados: Redis é um banco de dados chave-valor em memória. É altamente eficiente para armazenar dados simples, como conjuntos, listas, strings e hashes.
+
+2. Tempo de Vida dos Dados: Redis é ótimo para manipular dados com base no tempo, como no caso de limitar o número de compras em um determinado período de tempo. É fácil de definir expiração em chaves (time-to-live).
+
+3. Velocidade: Redis é extremamente rápido, pois mantém os dados em memória. É ideal para casos em que o desempenho é crucial.
+
+4. Prós:
+
+Ótimo para armazenar dados efêmeros, como pedidos em um curto período de tempo.
+Extremamente rápido.
+Suporte nativo para operações atômicas em estruturas de dados.
+Suporte para expiração de chaves.
+
+5. Contras:
+
+Não é adequado para dados que precisam ser mantidos por longos períodos (não persistente).
+Limitado em termos de recursos de consulta avançada.
+Não é escalável horizontalmente sem a adição de servidores adicionais.
+
+
+Implementação baseada em MongoDB:
+
+1. Modelo de Dados: MongoDB é um banco de dados NoSQL que oferece suporte a documentos BSON semelhantes a JSON. É eficaz para armazenar dados estruturados e semi-estruturados.
+
+2. Tempo de Vida dos Dados: MongoDB não fornece expiração de chaves embutida como o Redis, mas é possível implementar a lógica de expiração no aplicativo.
+
+3. Versatilidade: MongoDB é mais versátil e adequado para uma ampla variedade de dados e casos de uso, permitindo consultas avançadas e agregações.
+
+4. Prós:
+
+Adequado para dados que precisam ser mantidos a longo prazo.
+Suporte a consultas avançadas e agregações.
+Escalabilidade horizontal mais fácil de alcançar.
+Persistência de dados.
+
+5. Contras:
+
+Não é tão rápido quanto o Redis para operações em memória.
+Requer mais configuração para escalabilidade horizontal.
+Adequação a este problema específico:
+
+Para o problema de limitar o número de compras em um determinado período de tempo, a solução baseada em Redis é uma escolha mais apropriada. O Redis permite definir facilmente expiração de chaves e é altamente eficiente para armazenar dados efêmeros em memória. É rápido e fornece mecanismos para garantir que um utilizador não exceda o limite de compras dentro de um período de tempo específico.
+
+Por outro lado, o MongoDB é mais adequado para cenários em que os dados precisam ser mantidos a longo prazo, ou quando é preciso realizar consultas complexas de dados. Portanto, para o problema específico de limitar compras em um período de tempo, a solução baseada em Redis é a melhor escolha.
+
+Teste de desempenho:
+
+Redis:
+
+1. Tempo de escrita de 20 prdutos:
+        - "Tempo total de execução da escrita: 32 ms"
+
+2. Tempo de leitura de 20 produtos:
+        - "Tempo total de execução da leitura: 36 ms"
+
+MongoDB:
+
+1. Tempo de escrita de 20 prdutos:
+        - "Tempo total de execução da escrita: 121 ms"
+
+2. Tempo de leitura de 20 produtos:
+        - "Tempo total de execução da leitura: 6 ms"
+
+
+Conclusão:
+
+Como era de esperar, o Redis é muito mais rápido que o MongoDB para operações em memória.
+Ao contrário do se esperava o MongoDB foi mais rápido que o Redis para operações de leitura, sendo que o mesmo pode ser explicado graças às operações extras exigidas pela maneira como foi programado o método de leitura (culpa minha).

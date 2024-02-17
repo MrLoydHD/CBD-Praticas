@@ -1,6 +1,0 @@
-Para aparecer diretamente no redis-cli:
-redis-cli < <diretorio>/CBD-12-batch.txt
-
-Para ser apenas executado:
-redis-cli -h localhost -p 6379 --pipe < CBD-12-batch.txt 
-
